@@ -1,0 +1,14 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<Context>-->
+<!--    <Resource name="jdbc/pool_jpa"-->
+<!--              auth="Container"-->
+<!--              type="javax.sql.DataSource"-->
+<!--              maxTotal="100"-->
+<!--              maxWaitMillis="10000"-->
+<!--              username="postgres"-->
+<!--              password="postgres"-->
+<!--              driverClassName="org.postgresql.Driver"-->
+<!--              url="jdbc:postgresql://localhost:5432/practica?jdbcCompliantTruncation=false"-->
+<!--    />-->
+
+<!--</Context>-->

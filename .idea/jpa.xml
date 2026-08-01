@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaPluginProjectSettings" isShowLibraryClassesInOrmView="true" />
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="PracticaTW" name="practicatwPU" framework="JPA" ormUnit="PracticaTW:practicatwPU" defaultDataSourceId="a821f5b4-2252-4807-86d8-7fb6a4cd3b6a" />
+    </persistence-units>
+  </component>
+</project>
