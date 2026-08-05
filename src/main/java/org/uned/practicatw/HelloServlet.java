@@ -4,7 +4,9 @@ import java.io.*;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
@@ -20,9 +22,8 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
+        out.println("<p>" + System.getProperty("user.name") + "</p>");
         out.println("</body></html>");
-    }
-
-    public void destroy() {
+        log.debug("Holita");
     }
 }

@@ -23,14 +23,16 @@ public class DatabaseInitListener implements ServletContextListener {
 //        String host = System.getenv("DB_HOST");
 //        String port = System.getenv("DB_PORT");
 //        String name = System.getenv("DB_NAME");
-//        String user = System.getenv("DB_USER");
-//        String password = System.getenv("DB_PASSWORD");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        System.out.println("Usuario" + user);
 
         String host = "localhost";
         String port = "5432";
         String name = "practica";
-        String user = "postgres";
-        String password = "postgres";
+//        String user = "postgres";
+//        String password = "postgres";
 
 
         String url = "jdbc:postgresql://" + host + ":" + port + "/" + name;

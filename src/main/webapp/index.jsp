@@ -5,8 +5,9 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
+<h1><%= "Hello Worlda!" %></h1>
+<br>
+<p><%= System.getProperty("user.name")%></p>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 </body>

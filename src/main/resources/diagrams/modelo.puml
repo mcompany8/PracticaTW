@@ -1,0 +1,65 @@
+@startuml
+
+abstract class Usuario {
+- id: Long
+- email: String
+- clave: String
+- nombre: String
+- apellidos: String
+- direccion: String
+- poblacion: String
+- provincia: String
+- codigoPostal: String
+}
+
+class Estudiante {}
+class Profesor {}
+class Administrador {}
+class Tematica
+class Inscripcion {
+}
+
+
+class Curso {
+- id: int
+- titulo: String
+- descripcion: String
+- duracion: int
+}
+
+enum Nivel{
+BASICO
+INTERMEDIO
+AVANZADO
+}
+
+class Contenido {}
+
+class Tarea {
+- descripcion: String
+- plazoDias: Integer
+}
+
+class EntregaTarea {
+- calificacion: BigDecimal
+- fechaEntrega: LocalDate
+}
+
+Usuario <|-- Estudiante
+Usuario <|-- Profesor
+Profesor <|-- Administrador
+Profesor "1" <--> "0..*" Curso : "Imparte" >
+Estudiante "1" o-- "*" Tematica : "Se interesa por"
+Estudiante "1" <--> "0..*" Inscripcion : "Tiene"
+Curso "1" o--> "0..*" Contenido : Contiene >
+Curso "0" o--> "*" Tematica : "Relacionado con"
+Curso "1" o--> "1" Nivel
+Curso "1" *-- "0..*" Tarea
+Inscripcion <-->  Curso : Tiene >
+Inscripcion "1" *--> "0..*" EntregaTarea
+Tarea "1" *--> "0..*" EntregaTarea
+
+
+
+
+@enduml
