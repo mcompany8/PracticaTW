@@ -1,10 +1,10 @@
 package org.uned.practicatw.listeners;
 
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+import org.uned.practicatw.utils.JPAUtil;
 
 import java.util.logging.Logger;
 
@@ -16,10 +16,8 @@ public class ApplicationListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        emf = Persistence.createEntityManagerFactory("practicatwPU");
-        sce.getServletContext().setAttribute("emf", emf);
+        JPAUtil.getEntityManagerFactory();
         logger.info("Creada la PU");
-        System.out.println("Esto es un mensajito");
 
     }
 
