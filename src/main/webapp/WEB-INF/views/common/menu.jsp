@@ -17,7 +17,7 @@
                     <a href="app/cursosProf" class="menu__link">Cursos</a>
                 </li>
                 <li class="menu__item">
-                    <a href="#" class="menu__link">Contenidos</a>
+                    <a href="app/contenido" class="menu__link">Contenidos</a>
                 </li>
                 <li class="menu__item">
                     <a href="#" class="menu__link">Estadísticas</a>

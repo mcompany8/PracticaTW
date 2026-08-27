@@ -1,10 +1,10 @@
 package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "contenidos")
@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Contenido {
 
     public enum TipoContenido {
@@ -33,7 +34,13 @@ public class Contenido {
     )
     private TipoContenido tipoContenido;
 
-    private String url;
+    @Column(
+            name = "fichero_id",
+            nullable = false,
+            unique = true
+    )
+    private String ficheroId;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
@@ -41,6 +48,17 @@ public class Contenido {
             foreignKey = @ForeignKey(name = "fk_propietario")
     )
     private Profesor propietario;
+
+    @Column(nullable = false)
+    private boolean publico;
+
+    @Column(
+            name = "fecha_subida",
+            nullable = false
+    )
+    private LocalDateTime fechaSubida;
+
+
 
 
 }

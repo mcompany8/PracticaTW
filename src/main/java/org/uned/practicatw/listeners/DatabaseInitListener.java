@@ -37,6 +37,9 @@ public class DatabaseInitListener implements ServletContextListener {
 
         String url = "jdbc:postgresql://" + host + ":" + port + "/" + name;
 
+        System.out.println(url);
+        System.out.println(user + " " + password + " JA");
+
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             insertUsuarios();

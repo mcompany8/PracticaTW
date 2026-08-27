@@ -15,16 +15,20 @@ public class CommandFactory {
         CursoService cursoService = ServiceFactory.getCursoService();
         UsuarioService usuarioService = ServiceFactory.getUsuarioService();
         InscripcionService inscripcionService = ServiceFactory.getInscripcionService();
+        ContenidoService contenidoService = ServiceFactory.getContenidoService();
 
         commands.put("listarUsuarios", new ListarUsuariosCommand(usuarioService));
         commands.put("cursosProf", new ListarCursosProfesorCommand(cursoService));
         commands.put("estudiantesCurso", new ListarEstudiantesPorCursoCommand(inscripcionService));
         commands.put("detalleCurso", new DetalleCursoCommand(cursoService, inscripcionService));
+        commands.put("subirContenido", new SubirContenidoCommand(contenidoService));
         commands.put("doLogin", new LoginCommand(authService));
         commands.put("logout", new CerrarSesionCommand());
         commands.put("login", new ViewCommand("/WEB-INF/views/login.jsp"));
         commands.put("inicio", new ViewCommand("/WEB-INF/views/index.jsp"));
-        commands.put("notFound", new  ViewCommand("/WEB-INF/views/error/500.jsp"));
+        commands.put("contenido", new  ViewCommand("/WEB-INF/views/subirContenido.jsp"));
+        commands.put("notFound", new  ViewCommand("/WEB-INF/views/error/404.jsp"));
+
     }
 
     public static Command getCommand(String path) {

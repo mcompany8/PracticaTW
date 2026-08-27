@@ -65,21 +65,4 @@ public class Curso {
     private Profesor responsable;
     private String imagen;
 
-    @ManyToMany
-    @JoinTable(
-            name = "cursos_contenidos",
-            joinColumns = @JoinColumn(
-                    name = "curso_id",
-                    foreignKey = @ForeignKey(name = "fk_curso"),
-                    nullable = false
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "contenido_id",
-                    foreignKey = @ForeignKey(name = "fK_contenido"),
-                    nullable = false
-            )
-    )
-    private List<Contenido> contenidos = new ArrayList<>();
-
-
 }
