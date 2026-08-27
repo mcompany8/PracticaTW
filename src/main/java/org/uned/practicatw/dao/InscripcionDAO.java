@@ -1,7 +1,14 @@
 package org.uned.practicatw.dao;
 
+import org.uned.practicatw.model.Curso;
+import org.uned.practicatw.model.Estudiante;
 import org.uned.practicatw.model.Inscripcion;
 
-public interface InscripcionDAO extends GenericDAO<Inscripcion,Long> {
+import java.util.List;
+
+public interface InscripcionDAO extends GenericDAO<Inscripcion> {
+
+    public List<Estudiante> buscarEstudiantesPorCurso(Long cursoId);
+    public List<Curso> buscarCursosPorEstudiante(Long estudianteId);
 
 }

@@ -21,7 +21,6 @@ public class EntregaTarea implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
             name = "inscripcion_id",

@@ -4,11 +4,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+import org.uned.practicatw.controller.CommandFactory;
+import org.uned.practicatw.service.ServiceFactory;
 import org.uned.practicatw.utils.JPAUtil;
 
 import java.util.logging.Logger;
 
-@WebListener
 public class ApplicationListener implements ServletContextListener {
 
     private static final Logger logger = Logger.getLogger(ApplicationListener.class.getName());
@@ -16,8 +17,14 @@ public class ApplicationListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        JPAUtil.getEntityManagerFactory();
+        emf = JPAUtil.getEntityManagerFactory();
         logger.info("Creada la PU");
+
+        ServiceFactory.init(emf);
+        logger.info("ServiceFactory inicializado");
+
+        CommandFactory.init();
+        logger.info("CommandFactory inicializado");
 
     }
 

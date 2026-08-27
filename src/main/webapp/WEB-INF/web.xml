@@ -3,4 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+    <welcome-file-list>
+        <welcome-file>app/inicio</welcome-file>
+    </welcome-file-list>
+
+    <!--Listeners-->
+
+    <listener>
+        <listener-class>org.uned.practicatw.listeners.ApplicationListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.uned.practicatw.listeners.DatabaseInitListener</listener-class>
+    </listener>
+
+
+    <!--Páginas de error-->
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error/500.jsp</location>
+    </error-page>
 </web-app>

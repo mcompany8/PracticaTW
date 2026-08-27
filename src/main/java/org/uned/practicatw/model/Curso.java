@@ -1,10 +1,7 @@
 package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +12,24 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "Curso.buscarPorProfesor",
+                        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId ORDER BY c.titulo"
+                ),
+                @NamedQuery(
+                        name = "Curso.buscarPorIdYProfesor",
+                        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId AND c.id = :id"
+                )
+        }
+)
 public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String titulo;
     private String descripcion;
@@ -28,7 +38,7 @@ public class Curso {
     @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
     private Nivel nivel;
-    @OneToMany(mappedBy="curso", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tarea> tareas = new ArrayList<>();
 
     @ManyToMany
@@ -36,19 +46,40 @@ public class Curso {
             name = "cursos_tematicas",
             joinColumns = @JoinColumn(
                     name = "curso_id",
-                    foreignKey = @ForeignKey(name = "fk_tematica"),
+                    foreignKey = @ForeignKey(name = "fk_curso"),
                     nullable = false
             ),
             inverseJoinColumns = @JoinColumn(
                     name = "tematica_id",
-                    foreignKey = @ForeignKey(name = "fk_curso"),
+                    foreignKey = @ForeignKey(name = "fk_tematica"),
                     nullable = false
             )
     )
     private List<Tematica> tematicas = new ArrayList<>();
 
-
     @ManyToOne
-    @JoinColumn(name = "responsable_id")
+    @JoinColumn(
+            name = "responsable_id",
+            foreignKey = @ForeignKey(name = "fk_responsable")
+    )
     private Profesor responsable;
+    private String imagen;
+
+    @ManyToMany
+    @JoinTable(
+            name = "cursos_contenidos",
+            joinColumns = @JoinColumn(
+                    name = "curso_id",
+                    foreignKey = @ForeignKey(name = "fk_curso"),
+                    nullable = false
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "contenido_id",
+                    foreignKey = @ForeignKey(name = "fK_contenido"),
+                    nullable = false
+            )
+    )
+    private List<Contenido> contenidos = new ArrayList<>();
+
+
 }

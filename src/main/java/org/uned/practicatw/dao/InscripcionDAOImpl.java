@@ -1,9 +1,40 @@
 package org.uned.practicatw.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
+import org.uned.practicatw.model.Curso;
+import org.uned.practicatw.model.Estudiante;
 import org.uned.practicatw.model.Inscripcion;
 
-public class InscripcionDAOImpl extends GenericDAOImpl<Inscripcion,Long> implements InscripcionDAO {
-    public InscripcionDAOImpl() {
-        super(Inscripcion.class);
+import java.util.List;
+
+public class InscripcionDAOImpl extends GenericDAOImpl<Inscripcion> implements InscripcionDAO {
+
+    public InscripcionDAOImpl(EntityManagerFactory emf) {
+        super(Inscripcion.class, emf);
+    }
+
+    @Override
+    public List<Estudiante> buscarEstudiantesPorCurso(Long cursoId) {
+
+        try (EntityManager em = getEntityManager()) {
+            TypedQuery<Estudiante> query = em.createNamedQuery(
+                    "Inscripcion.buscarEstudiantesPorCurso"
+                    , Estudiante.class);
+            query.setParameter("cursoId", cursoId);
+            return query.getResultList();
+        }
+    }
+
+    @Override
+    public List<Curso> buscarCursosPorEstudiante(Long estudianteId) {
+        try(EntityManager em = getEntityManager()) {
+            TypedQuery<Curso> query = em.createNamedQuery(
+                    "Inscripcion.buscarCursosPorEstudiante"
+                    , Curso.class);
+            query.setParameter("estudianteId", estudianteId);
+            return query.getResultList();
+        }
     }
 }

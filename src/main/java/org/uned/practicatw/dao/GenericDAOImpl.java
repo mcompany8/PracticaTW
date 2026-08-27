@@ -7,13 +7,19 @@ import org.uned.practicatw.utils.JPAUtil;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class GenericDAOImpl<T,ID> implements GenericDAO<T,ID> {
+public abstract class GenericDAOImpl<T> implements GenericDAO<T> {
 
-    private static final EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
+    private final EntityManagerFactory emf;
     private final Class<T> entityClass;
 
-    protected GenericDAOImpl(Class<T> entityClass) {
+    protected GenericDAOImpl(Class<T> entityClass, EntityManagerFactory emf) {
+
         this.entityClass = entityClass;
+        this.emf = emf;
+    }
+
+    protected EntityManager getEntityManager() {
+        return emf.createEntityManager();
     }
 
 
@@ -34,7 +40,7 @@ public abstract class GenericDAOImpl<T,ID> implements GenericDAO<T,ID> {
     }
 
     @Override
-    public Optional<T> buscarPorId(ID id) {
+    public Optional<T> buscarPorId(Long id) {
         try (EntityManager em = emf.createEntityManager()) {
             return Optional.ofNullable(em.find(entityClass, id));
         }
@@ -66,7 +72,7 @@ public abstract class GenericDAOImpl<T,ID> implements GenericDAO<T,ID> {
     }
 
     @Override
-    public void eliminar(ID id) {
+    public void eliminar(Long id) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();

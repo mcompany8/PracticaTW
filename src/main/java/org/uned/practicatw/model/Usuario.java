@@ -1,10 +1,9 @@
 package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jdk.jfr.Name;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
@@ -16,6 +15,13 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
+@NamedQueries({
+        @NamedQuery(
+                name= "Usuario.buscarPorEmail",
+                query = "SELECT u FROM Usuario u WHERE u.email = :email"
+        )
+})
 public abstract class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,12 +35,17 @@ public abstract class Usuario implements Serializable {
     private String nombre;
     @Column(length = 100, nullable = false)
     private String apellidos;
-    @Column(name = "password_hash", nullable = false, length = 44)
+    @Column(name = "password_hash", nullable = false, length = 60)
     private String password;
     private String direccion;
     private String poblacion;
     private String provincia;
     @Column(name = "codigo_postal")
     private String codigopostal;
+
+    public String getTipoUsuario() {
+        return this.getClass().getSimpleName();
+    }
+
 
 }
