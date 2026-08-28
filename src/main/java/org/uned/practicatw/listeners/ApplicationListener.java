@@ -4,35 +4,43 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
+import lombok.extern.slf4j.Slf4j;
 import org.uned.practicatw.controller.CommandFactory;
 import org.uned.practicatw.service.ServiceFactory;
 import org.uned.practicatw.utils.JPAUtil;
 
-import java.util.logging.Logger;
 
+@Slf4j
 public class ApplicationListener implements ServletContextListener {
 
-    private static final Logger logger = Logger.getLogger(ApplicationListener.class.getName());
     private static EntityManagerFactory emf;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        emf = JPAUtil.getEntityManagerFactory();
-        logger.info("Creada la PU");
-
-        ServiceFactory.init(emf);
-        logger.info("ServiceFactory inicializado");
-
-        CommandFactory.init();
-        logger.info("CommandFactory inicializado");
-
+        inicioPU();
+        inicioFactory();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         if (emf != null) {
             emf.close();
-            logger.info("Cerrada la PU");
+            log.info("Cerrada la PU");
         }
+    }
+
+    private void inicioPU() {
+        emf = JPAUtil.getEntityManagerFactory();
+        log.info("Creada la PU");
+    }
+
+    private void inicioFactory() {
+
+        ServiceFactory.init(emf);
+        log.info("ServiceFactory inicializado");
+
+        CommandFactory.init();
+        log.info("CommandFactory inicializado");
+
     }
 }

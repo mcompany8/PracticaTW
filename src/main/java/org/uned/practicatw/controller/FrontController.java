@@ -23,6 +23,7 @@ public class FrontController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         String pathInfo = req.getPathInfo();
         String action = (pathInfo == null || pathInfo.equals("/"))
                 ? "home"
