@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/app/*")
 @MultipartConfig(
-        location = "/temp",
+//        location = "C:/temp/archivitos",
         maxFileSize = 10 * 1024 * 1024,
         maxRequestSize = 15 * 1024 * 1024,
         fileSizeThreshold = 0

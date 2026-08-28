@@ -10,6 +10,7 @@
 </c:if>
 <main>
 
+
     <header class="banner-curso">
         <img src="assets/img/cursos/${requestScope.curso.imagen}" alt="">
         <h2>${requestScope.curso.titulo}</h2>
