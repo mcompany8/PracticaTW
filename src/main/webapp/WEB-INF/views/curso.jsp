@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/paginas/curso.css">
 <%--    <link rel="stylesheet" type="text/css" href="assets/css/paginas/index.css">--%>
 </head>
 
@@ -38,14 +39,14 @@
         <c:choose>
 
             <%-- Caso 1: hay sesión y el usuario es Estudiante --%>
-            <c:when test="${not empty sessionScope.usuarioLogueado and sessionScope.usuarioLogueado.rol eq 'ESTUDIANTE'}">
+            <c:when test="${not empty sessionScope.usuario and sessionScope.usuario.tipoUsuario eq 'Estudiante'}">
                 <c:choose>
-                    <c:when test="${yaInscrito}">
+                    <c:when test="${not empty requestScope.inscripcion}">
                         <p class="curso-detalle__aviso">Ya estás inscrito en este curso.</p>
                     </c:when>
                     <c:otherwise>
                         <form class="curso-detalle__form"
-                              action="${pageContext.request.contextPath}/app/curso"
+                              action="app/curso"
                               method="post">
                             <input type="hidden" name="accion" value="inscribirse">
                             <input type="hidden" name="cursoId" value="${curso.id}">
@@ -58,7 +59,7 @@
             </c:when>
 
             <%-- Caso 2: no hay nadie logueado --%>
-            <c:when test="${empty sessionScope.usuarioLogueado}">
+            <c:when test="${empty sessionScope.usuario}">
                 <p class="curso-detalle__aviso">
                     Debes registrarte para poder inscribirte en este curso.
                 </p>

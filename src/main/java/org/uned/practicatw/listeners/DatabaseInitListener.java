@@ -655,5 +655,460 @@ public class DatabaseInitListener implements ServletContextListener {
                         .password(PasswordUtil.hashPassword("pass45"))
                         .build()
         );
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("jprieto@dummy.es")
+                        .nombre("Javier")
+                        .apellidos("Prieto Molina")
+                        .direccion("Calle Mayor 15")
+                        .codigopostal("37001")
+                        .poblacion("Salamanca")
+                        .provincia("Salamanca")
+                        .password(PasswordUtil.hashPassword("pass46"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("mherranz@dummy.es")
+                        .nombre("Marta")
+                        .apellidos("Herranz López")
+                        .direccion("Calle Toro 8")
+                        .codigopostal("37002")
+                        .poblacion("Salamanca")
+                        .provincia("Salamanca")
+                        .password(PasswordUtil.hashPassword("pass47"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("aalonso2@dummy.es")
+                        .nombre("Alberto")
+                        .apellidos("Alonso Merino")
+                        .direccion("Calle Constitución 11")
+                        .codigopostal("09001")
+                        .poblacion("Burgos")
+                        .provincia("Burgos")
+                        .password(PasswordUtil.hashPassword("pass48"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("rprieto@dummy.es")
+                        .nombre("Raquel")
+                        .apellidos("Prieto Gómez")
+                        .direccion("Calle San Juan 5")
+                        .codigopostal("09003")
+                        .poblacion("Burgos")
+                        .provincia("Burgos")
+                        .password(PasswordUtil.hashPassword("pass49"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("jortega2@dummy.es")
+                        .nombre("José")
+                        .apellidos("Ortega Muñoz")
+                        .direccion("Avenida Castilla 28")
+                        .codigopostal("47005")
+                        .poblacion("Valladolid")
+                        .provincia("Valladolid")
+                        .password(PasswordUtil.hashPassword("pass50"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("lsanchez3@dummy.es")
+                        .nombre("Laura")
+                        .apellidos("Sánchez Martín")
+                        .direccion("Calle Real 12")
+                        .codigopostal("28001")
+                        .poblacion("Madrid")
+                        .provincia("Madrid")
+                        .password(PasswordUtil.hashPassword("pass51"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("dgarcia3@dummy.es")
+                        .nombre("David")
+                        .apellidos("García Romero")
+                        .direccion("Avenida Europa 18")
+                        .codigopostal("28022")
+                        .poblacion("Madrid")
+                        .provincia("Madrid")
+                        .password(PasswordUtil.hashPassword("pass52"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("acastro@dummy.es")
+                        .nombre("Ana")
+                        .apellidos("Castro Pérez")
+                        .direccion("Calle Olmo 7")
+                        .codigopostal("41001")
+                        .poblacion("Sevilla")
+                        .provincia("Sevilla")
+                        .password(PasswordUtil.hashPassword("pass53"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("jruiz3@dummy.es")
+                        .nombre("Jorge")
+                        .apellidos("Ruiz Cano")
+                        .direccion("Avenida Andalucía 34")
+                        .codigopostal("41005")
+                        .poblacion("Sevilla")
+                        .provincia("Sevilla")
+                        .password(PasswordUtil.hashPassword("pass54"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("cmartin3@dummy.es")
+                        .nombre("Carmen")
+                        .apellidos("Martín Reyes")
+                        .direccion("Calle Luna 22")
+                        .codigopostal("29001")
+                        .poblacion("Málaga")
+                        .provincia("Málaga")
+                        .password(PasswordUtil.hashPassword("pass55"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("jnavarro@dummy.es")
+                        .nombre("Juan")
+                        .apellidos("Navarro Gil")
+                        .direccion("Calle Granada 6")
+                        .codigopostal("29004")
+                        .poblacion("Málaga")
+                        .provincia("Málaga")
+                        .password(PasswordUtil.hashPassword("pass56"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("mlopez3@dummy.es")
+                        .nombre("María")
+                        .apellidos("López Fernández")
+                        .direccion("Calle Colón 40")
+                        .codigopostal("46001")
+                        .poblacion("Valencia")
+                        .provincia("Valencia")
+                        .password(PasswordUtil.hashPassword("pass57"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("rtorres@dummy.es")
+                        .nombre("Raúl")
+                        .apellidos("Torres Vázquez")
+                        .direccion("Avenida del Puerto 15")
+                        .codigopostal("46011")
+                        .poblacion("Valencia")
+                        .provincia("Valencia")
+                        .password(PasswordUtil.hashPassword("pass58"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("sorozco@dummy.es")
+                        .nombre("Sara")
+                        .apellidos("Orozco Mora")
+                        .direccion("Calle Aragón 23")
+                        .codigopostal("50001")
+                        .poblacion("Zaragoza")
+                        .provincia("Zaragoza")
+                        .password(PasswordUtil.hashPassword("pass59"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("hvega@dummy.es")
+                        .nombre("Hugo")
+                        .apellidos("Vega Prieto")
+                        .direccion("Paseo Independencia 11")
+                        .codigopostal("50004")
+                        .poblacion("Zaragoza")
+                        .provincia("Zaragoza")
+                        .password(PasswordUtil.hashPassword("pass60"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("lmedina@dummy.es")
+                        .nombre("Lucía")
+                        .apellidos("Medina Ramos")
+                        .direccion("Calle Mayor 18")
+                        .codigopostal("33001")
+                        .poblacion("Oviedo")
+                        .provincia("Asturias")
+                        .password(PasswordUtil.hashPassword("pass61"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("farias@dummy.es")
+                        .nombre("Fernando")
+                        .apellidos("Arias Blanco")
+                        .direccion("Calle Uría 25")
+                        .codigopostal("33003")
+                        .poblacion("Oviedo")
+                        .provincia("Asturias")
+                        .password(PasswordUtil.hashPassword("pass62"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("ebenitez@dummy.es")
+                        .nombre("Elena")
+                        .apellidos("Benítez Soto")
+                        .direccion("Avenida Castelao 20")
+                        .codigopostal("36201")
+                        .poblacion("Vigo")
+                        .provincia("Pontevedra")
+                        .password(PasswordUtil.hashPassword("pass63"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("jsuarez3@dummy.es")
+                        .nombre("Jesús")
+                        .apellidos("Suárez Iglesias")
+                        .direccion("Calle Venezuela 15")
+                        .codigopostal("36204")
+                        .poblacion("Vigo")
+                        .provincia("Pontevedra")
+                        .password(PasswordUtil.hashPassword("pass64"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("mmoreno3@dummy.es")
+                        .nombre("Mónica")
+                        .apellidos("Moreno Díaz")
+                        .direccion("Calle del Agua 6")
+                        .codigopostal("35001")
+                        .poblacion("Las Palmas")
+                        .provincia("Las Palmas")
+                        .password(PasswordUtil.hashPassword("pass65"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("csantos3@dummy.es")
+                        .nombre("Carlos")
+                        .apellidos("Santos León")
+                        .direccion("Avenida Marítima 45")
+                        .codigopostal("35008")
+                        .poblacion("Las Palmas")
+                        .provincia("Las Palmas")
+                        .password(PasswordUtil.hashPassword("pass66"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("vgomez3@dummy.es")
+                        .nombre("Verónica")
+                        .apellidos("Gómez Calvo")
+                        .direccion("Calle Mayor 3")
+                        .codigopostal("24001")
+                        .poblacion("León")
+                        .provincia("León")
+                        .password(PasswordUtil.hashPassword("pass67"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("aibanez@dummy.es")
+                        .nombre("Álvaro")
+                        .apellidos("Ibáñez Robles")
+                        .direccion("Calle Ordoño II 17")
+                        .codigopostal("24003")
+                        .poblacion("León")
+                        .provincia("León")
+                        .password(PasswordUtil.hashPassword("pass68"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("nguerra@dummy.es")
+                        .nombre("Natalia")
+                        .apellidos("Guerra Martín")
+                        .direccion("Calle Norte 10")
+                        .codigopostal("39001")
+                        .poblacion("Santander")
+                        .provincia("Cantabria")
+                        .password(PasswordUtil.hashPassword("pass69"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("dortiz3@dummy.es")
+                        .nombre("Diego")
+                        .apellidos("Ortiz Peña")
+                        .direccion("Avenida Reina Victoria 8")
+                        .codigopostal("39004")
+                        .poblacion("Santander")
+                        .provincia("Cantabria")
+                        .password(PasswordUtil.hashPassword("pass70"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("ireyes@dummy.es")
+                        .nombre("Irene")
+                        .apellidos("Reyes Caballero")
+                        .direccion("Calle Catedral 14")
+                        .codigopostal("18001")
+                        .poblacion("Granada")
+                        .provincia("Granada")
+                        .password(PasswordUtil.hashPassword("pass71"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("pmarin3@dummy.es")
+                        .nombre("Pablo")
+                        .apellidos("Marín Herrera")
+                        .direccion("Camino de Ronda 31")
+                        .codigopostal("18005")
+                        .poblacion("Granada")
+                        .provincia("Granada")
+                        .password(PasswordUtil.hashPassword("pass72"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("amendez@dummy.es")
+                        .nombre("Andrea")
+                        .apellidos("Méndez Pardo")
+                        .direccion("Calle San Miguel 12")
+                        .codigopostal("30001")
+                        .poblacion("Murcia")
+                        .provincia("Murcia")
+                        .password(PasswordUtil.hashPassword("pass73"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("rluna@dummy.es")
+                        .nombre("Rubén")
+                        .apellidos("Luna Serrano")
+                        .direccion("Avenida Libertad 19")
+                        .codigopostal("30007")
+                        .poblacion("Murcia")
+                        .provincia("Murcia")
+                        .password(PasswordUtil.hashPassword("pass74"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("paula.rojas@dummy.es")
+                        .nombre("Paula")
+                        .apellidos("Rojas Nieto")
+                        .direccion("Calle del Sol 5")
+                        .codigopostal("10001")
+                        .poblacion("Cáceres")
+                        .provincia("Cáceres")
+                        .password(PasswordUtil.hashPassword("pass75"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("sergio.duran@dummy.es")
+                        .nombre("Sergio")
+                        .apellidos("Durán Flores")
+                        .direccion("Avenida España 22")
+                        .codigopostal("10004")
+                        .poblacion("Cáceres")
+                        .provincia("Cáceres")
+                        .password(PasswordUtil.hashPassword("pass76"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("noelia.campo@dummy.es")
+                        .nombre("Noelia")
+                        .apellidos("Campo Ruiz")
+                        .direccion("Calle Jardín 14")
+                        .codigopostal("02001")
+                        .poblacion("Albacete")
+                        .provincia("Albacete")
+                        .password(PasswordUtil.hashPassword("pass77"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("ivan.soler@dummy.es")
+                        .nombre("Iván")
+                        .apellidos("Soler Pastor")
+                        .direccion("Avenida Feria 18")
+                        .codigopostal("02005")
+                        .poblacion("Albacete")
+                        .provincia("Albacete")
+                        .password(PasswordUtil.hashPassword("pass78"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("patricia.rico@dummy.es")
+                        .nombre("Patricia")
+                        .apellidos("Rico Molina")
+                        .direccion("Calle Mercado 3")
+                        .codigopostal("05001")
+                        .poblacion("Ávila")
+                        .provincia("Ávila")
+                        .password(PasswordUtil.hashPassword("pass79"))
+                        .build()
+        );
+
+        usuarioService.crear(
+                Estudiante.builder()
+                        .email("miguel.delgado@dummy.es")
+                        .nombre("Miguel")
+                        .apellidos("Delgado Nieto")
+                        .direccion("Calle San Pedro 17")
+                        .codigopostal("05003")
+                        .poblacion("Ávila")
+                        .provincia("Ávila")
+                        .password(PasswordUtil.hashPassword("pass80"))
+                        .build()
+        );
+
     }
 }

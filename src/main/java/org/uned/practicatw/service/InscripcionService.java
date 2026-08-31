@@ -9,4 +9,5 @@ import java.util.List;
 public interface InscripcionService extends GenericService<Inscripcion> {
     List<Estudiante> obtenerEstudiantesPorCurso (Long cursoId);
     List<Curso> obtenerCursosPorEstudiante (Long estudianteId);
+    Inscripcion obtenerPorCursoAndEstudiante (Long cursoId, Long estudianteId);
 }

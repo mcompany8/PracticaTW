@@ -23,17 +23,17 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQueries(
-        {
-                @NamedQuery(
-                        name = "Inscripcion.buscarEstudiantesPorCurso",
-                        query = "SELECT i.estudiante FROM Inscripcion i WHERE i.curso.id = :cursoId"
-                ),
-                @NamedQuery(
-                        name = "Inscripcion.buscarCursosPorEstudiante",
-                        query = "SELECT i.curso FROM Inscripcion i WHERE i.estudiante.id = :estudianteId"
-                )
-        }
+@NamedQuery(
+        name = "Inscripcion.buscarEstudiantesPorCurso",
+        query = "SELECT i.estudiante FROM Inscripcion i WHERE i.curso.id = :cursoId"
+)
+@NamedQuery(
+        name = "Inscripcion.buscarCursosPorEstudiante",
+        query = "SELECT i.curso FROM Inscripcion i WHERE i.estudiante.id = :estudianteId"
+)
+@NamedQuery(
+        name = "Inscripcion.buscarPorCursoAndEstudiante",
+        query = "SELECT i FROM Inscripcion i WHERE i.curso.id = :cursoId AND i.estudiante.id = :estudianteId"
 )
 public class Inscripcion implements Serializable {
 

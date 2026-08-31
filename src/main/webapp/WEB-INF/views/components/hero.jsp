@@ -8,10 +8,10 @@
       y consigue tus objetivos de aprendizaje.
     </p>
     <div class="hero__actions">
-      <a href="${pageContext.request.contextPath}/app/cursos" class="hero__cta hero__cta--primary">
-        Explorar cursos
+      <a href="app/login" class="hero__cta hero__cta--primary">
+        Iniciar sesión
       </a>
-      <a href="${pageContext.request.contextPath}/app/registro" class="hero__cta hero__cta--secondary">
+      <a href="app/registro" class="hero__cta hero__cta--secondary">
         Crear cuenta
       </a>
     </div>

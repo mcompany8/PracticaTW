@@ -11,22 +11,22 @@
                 Mis cursos
             </a>
 
-            <c:if test="${sessionScope.usuarioLogueado.rol == 'ESTUDIANTE'}">
-                <a href="${pageContext.request.contextPath}/app/tarea?accion=pendientes"
+            <c:if test="${sessionScope.usuario.tipoUsuario == 'Estudiante'}">
+                <a href="app/tarea?accion=pendientes"
                    class="menu__enlace">Tareas pendientes</a>
             </c:if>
 
-            <c:if test="${sessionScope.usuarioLogueado.rol == 'PROFESOR' || sessionScope.usuarioLogueado.rol == 'ADMINISTRADOR'}">
-                <a href="${pageContext.request.contextPath}/app/curso?accion=crear"
+            <c:if test="${sessionScope.usuario.tipoUsuario == 'Profesor' || sessionScope.usuarioLogueado.rol == 'Administrador'}">
+                <a href="app/curso?accion=crear"
                    class="menu__enlace">Crear curso</a>
             </c:if>
 
-            <c:if test="${sessionScope.usuarioLogueado.rol == 'ADMINISTRADOR'}">
+            <c:if test="${sessionScope.usuarioLogueado.rol == 'Administrador'}">
                 <span class="menu__separador"></span>
                 <div class="menu__grupo menu__grupo--derecha">
-                    <a href="${pageContext.request.contextPath}/app/usuario?accion=listar"
+                    <a href="app/usuario?accion=listar"
                        class="menu__enlace">Usuarios</a>
-                    <a href="${pageContext.request.contextPath}/app/admin"
+                    <a href="app/admin"
                        class="menu__enlace">Administración</a>
                 </div>
             </c:if>

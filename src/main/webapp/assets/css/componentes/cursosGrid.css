@@ -79,3 +79,32 @@
 .curso-tarjeta__boton {
     margin-top: 0.3rem;
 }
+
+.curso-tarjeta__tematicas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.curso-tarjeta__tematica {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--color-fondo);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+    line-height: 1;
+}
+
+.curso-tarjeta__tematica-icono {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+}

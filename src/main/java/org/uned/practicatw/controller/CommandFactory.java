@@ -19,7 +19,8 @@ public class CommandFactory {
         ProfesorService profesorService = ServiceFactory.getProfesorService();
 
 
-        commands.put("curso", new VerCursoCommand(cursoService));
+        commands.put("curso", new VerCursoCommand(cursoService, inscripcionService));
+        commands.put("catalogo", new CatalogoCommand(cursoService));
         commands.put("crearCurso", new CrearCursoCommand(cursoService, profesorService));
         commands.put("nuevoCurso", new PrepararFormCursoCommand(profesorService));
         commands.put("listarUsuarios", new ListarUsuariosCommand(usuarioService));
