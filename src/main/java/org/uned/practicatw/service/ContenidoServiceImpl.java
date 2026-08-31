@@ -13,4 +13,9 @@ public class ContenidoServiceImpl extends GenericServiceImpl<Contenido, Contenid
     public ContenidoServiceImpl(ContenidoDAO dao) {
         super(dao);
     }
+
+    @Override
+    public List<Contenido> obtenerPorPropietarioOrPublico(Long idPropietario) {
+        return dao.buscarPorPropietarioOrPublico(idPropietario);
+    }
 }

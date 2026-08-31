@@ -13,6 +13,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@NamedQuery(
+        name = "Contenido.buscarPorPropietarioOrPublico",
+        query = "SELECT c FROM Contenido c WHERE c.propietario.id = :propietarioId OR c.publico = true ORDER BY titulo ASC",
+        resultClass =  Contenido.class
+)
 public class Contenido {
 
     public enum TipoContenido {
@@ -23,7 +28,11 @@ public class Contenido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+
+    @Column(
+            nullable = false,
+            unique = true
+    )
     private String titulo;
 
     @Enumerated(EnumType.STRING)
@@ -33,14 +42,6 @@ public class Contenido {
             nullable = false
     )
     private TipoContenido tipoContenido;
-
-    @Column(
-            name = "fichero_id",
-            nullable = false,
-            unique = true
-    )
-    private String ficheroId;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(

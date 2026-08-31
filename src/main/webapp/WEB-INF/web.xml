@@ -16,7 +16,7 @@
         <listener-class>org.uned.practicatw.listeners.DatabaseInitListener</listener-class>
     </listener>
     <listener>
-        <listener-class>org.uned.practicatw.listeners.SeedFilesListener</listener-class>
+        <listener-class>org.uned.practicatw.listeners.SeedListener</listener-class>
     </listener>
 
 

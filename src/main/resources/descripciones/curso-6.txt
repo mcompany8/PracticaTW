@@ -1,0 +1,7 @@
+Detrás de una aplicación moderna existe una capa backend encargada de proteger los datos, ejecutar las reglas de negocio y responder a las solicitudes de los clientes.
+
+El curso aborda el desarrollo con Node.js y Express, incluyendo módulos, asincronía, rutas, controladores, middleware, configuración, validación y gestión centralizada de errores. Se explica cómo conectar el servidor con una base de datos y cómo organizar el proyecto por responsabilidades.
+
+Los casos prácticos incorporan autenticación, autorización, registro de actividad, variables de entorno y respuestas HTTP coherentes. También se estudian problemas frecuentes como operaciones bloqueantes, promesas rechazadas, exposición de información sensible y acoplamiento excesivo entre la capa web y la persistencia.
+
+Al completar la formación, el alumno podrá implementar servicios backend mantenibles y preparados para integrarse con aplicaciones web, móviles u otros sistemas corporativos.

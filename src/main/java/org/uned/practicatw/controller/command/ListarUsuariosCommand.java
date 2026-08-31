@@ -15,7 +15,7 @@ public class ListarUsuariosCommand implements Command {
 
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        request.setAttribute("usuarios", usuarioService.listar());
+        request.setAttribute("usuarios", usuarioService.obtenerTodos());
         return CommandResult.forward("WEB-INF/views/listaUsuarios.jsp");
     }
 }

@@ -1,0 +1,7 @@
+Antes de escribir código es necesario saber analizar el problema, ordenar las decisiones y definir con claridad los pasos que conducirán al resultado esperado.
+
+Este curso desarrolla el pensamiento algorítmico mediante pseudocódigo, diagramas de flujo y ejercicios de razonamiento. Se estudian secuencias, condiciones, iteraciones, contadores, acumuladores, búsqueda y tratamiento de colecciones, prestando especial atención a la corrección de cada solución.
+
+Las actividades plantean problemas de dificultad progresiva para aprender a identificar datos de entrada, resultados, restricciones y casos límite. El alumno comparará distintas alternativas, localizará pasos redundantes y adquirirá criterios básicos para valorar la eficiencia temporal y el consumo de recursos.
+
+La formación prepara al participante para trasladar algoritmos a cualquier lenguaje de programación y para abordar ejercicios técnicos con un método ordenado, verificable y reutilizable.

@@ -11,6 +11,7 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
         super(Curso.class, emf);
     }
 
+    @Override
     public List<Curso> buscarPorProfesor(Long idProfesor) {
 
         try (EntityManager em = getEntityManager()) {
@@ -21,6 +22,7 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
 
     }
 
+    @Override
     public Curso buscarPorIdAndProfesor(Long id, Long idProfesor) {
 
         try (EntityManager em = getEntityManager()) {
@@ -31,5 +33,16 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
                     .findFirst()
                     .orElse(null);
         }
+    }
+
+    @Override
+    public List<Curso> buscarRandom(Integer cantidad) {
+
+        try (EntityManager em = getEntityManager()) {
+            return em.createNamedQuery("Curso.buscarCursosRandom", Curso.class)
+                    .setMaxResults(cantidad)
+                    .getResultList();
+        }
+
     }
 }

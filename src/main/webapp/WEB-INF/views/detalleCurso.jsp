@@ -10,11 +10,13 @@
 </c:if>
 <main>
 
+    <jsp:include page="bannerCurso.jsp"/>
 
-    <header class="banner-curso">
-        <img src="assets/img/cursos/${requestScope.curso.imagen}" alt="">
-        <h2>${requestScope.curso.titulo}</h2>
-    </header>
+
+<%--    <header class="banner-curso">--%>
+<%--        <img src="imagenes/${requestScope.curso.imagen}" alt="DAS">--%>
+<%--        <h2>${requestScope.curso.titulo}</h2>--%>
+<%--    </header>--%>
 
     <ul class="lista-acciones">
         <li class="lista-acciones_accion">
@@ -34,7 +36,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="link">
+            <a href="app/cursoContenido" class="link">
                 <svg class="link__icon">
                     <use href="assets/icons/icons.svg#folder-plus"></use>
                 </svg>

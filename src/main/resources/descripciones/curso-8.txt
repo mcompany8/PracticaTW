@@ -1,0 +1,7 @@
+Trabajar con control de versiones significa conservar la historia del software y facilitar que varias personas colaboren sin perder el control de los cambios.
+
+La formación comienza con repositorios, áreas de trabajo, commits y consulta del historial. Posteriormente se practican ramas, fusiones, resolución de conflictos, etiquetas, recuperación de versiones y sincronización con repositorios remotos alojados en GitHub.
+
+Se presentan flujos colaborativos basados en issues, pull requests y revisiones de código. El alumno aprenderá a preparar commits pequeños y comprensibles, mantener una estrategia de ramas coherente, proteger información sensible y utilizar archivos de exclusión adecuados.
+
+El curso permite adquirir una metodología diaria de trabajo con Git y GitHub aplicable tanto a proyectos individuales como a equipos de desarrollo distribuidos.

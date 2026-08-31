@@ -25,6 +25,8 @@ VALUES
     (20, 'DevOps: Integración y Despliegue Continuo (CI/CD)', 'Automatización de la integración y el despliegue continuo mediante pipelines CI/CD.',                                       'AVANZADO',    35, 4, '20_devops_integracion_y_despliegue_continuo_ci_cd.jpeg')
 ON CONFLICT (id) DO NOTHING;
 
+SELECT setval('cursos_id_seq', COALESCE((SELECT MAX(id) FROM cursos), 1));
+
 -- =========================
 -- TEMATICAS
 -- =========================

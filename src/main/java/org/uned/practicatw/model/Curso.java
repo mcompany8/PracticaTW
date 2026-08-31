@@ -13,17 +13,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@NamedQueries(
-        {
-                @NamedQuery(
-                        name = "Curso.buscarPorProfesor",
-                        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId ORDER BY c.titulo"
-                ),
-                @NamedQuery(
-                        name = "Curso.buscarPorIdYProfesor",
-                        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId AND c.id = :id"
-                )
-        }
+@NamedQuery(
+        name = "Curso.buscarPorProfesor",
+        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId ORDER BY c.titulo"
+)
+@NamedQuery(
+        name = "Curso.buscarPorIdYProfesor",
+        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId AND c.id = :id"
+)
+@NamedQuery(
+        name = "Curso.buscarCursosRandom",
+        query = "SELECT c FROM Curso c ORDER BY FUNCTION('RANDOM') "
 )
 public class Curso {
 
@@ -33,6 +33,10 @@ public class Curso {
 
     private String titulo;
     private String descripcion;
+
+    @Column(columnDefinition = "TEXT")
+    private String descripcionLarga;
+
     @Column(name = "duracion_horas")
     private Integer duracionHoras;
     @Enumerated(value = EnumType.STRING)

@@ -1,0 +1,7 @@
+La contenerización resuelve muchas diferencias entre entornos al empaquetar una aplicación junto con las dependencias necesarias para ejecutarla.
+
+Este curso explica imágenes, contenedores, registros, redes, volúmenes y el ciclo de vida administrado por Docker. El alumno construirá imágenes mediante Dockerfile y coordinará varios servicios con Docker Compose.
+
+Las prácticas incluyen aplicaciones con backend y base de datos, persistencia de información, configuración mediante variables y comunicación entre contenedores. Se revisan técnicas para reducir el tamaño de las imágenes, aprovechar la caché, ejecutar procesos con privilegios mínimos y evitar que secretos o archivos innecesarios formen parte del artefacto.
+
+Al finalizar, el participante podrá crear entornos reproducibles de desarrollo y preparar aplicaciones contenerizadas para integrarlas en procesos de prueba y despliegue.

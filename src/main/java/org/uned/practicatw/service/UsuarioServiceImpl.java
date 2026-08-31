@@ -31,4 +31,5 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, UsuarioDAO> 
         return dao.guardar(usuario);
 
     }
+
 }

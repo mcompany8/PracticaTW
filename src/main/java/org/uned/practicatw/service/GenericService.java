@@ -8,5 +8,5 @@ interface GenericService<T> {
     void actualizar(T t);
     void eliminar(Long id);
     Optional<T> obtenerPorId(Long id);
-    List<T> listar();
+    List<T> obtenerTodos();
 }

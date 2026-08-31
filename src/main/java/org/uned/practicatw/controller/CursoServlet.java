@@ -8,11 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.uned.practicatw.model.Curso;
 import org.uned.practicatw.model.Nivel;
 import org.uned.practicatw.service.CursoService;
-import org.uned.practicatw.service.CursoServiceImpl;
 import org.uned.practicatw.service.ServiceFactory;
 
 import java.io.IOException;
-import java.security.Provider;
 import java.util.List;
 
 @WebServlet(name = "Curso", value = "/curso")
@@ -36,7 +34,7 @@ public class CursoServlet extends HttpServlet {
             req.getRequestDispatcher("/cursodetalle.jsp").forward(req, resp);
         } else {
             // Listar todos
-            List<Curso> cursos = cursoService.listar();
+            List<Curso> cursos = cursoService.obtenerTodos();
             req.setAttribute("cursos", cursos);
             req.getRequestDispatcher("/listacursos.jsp").forward(req, resp);
         }

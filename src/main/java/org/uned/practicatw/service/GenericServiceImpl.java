@@ -30,7 +30,7 @@ public abstract class GenericServiceImpl<T, D extends GenericDAO<T>> implements 
         return dao.buscarPorId(id);
     }
 
-    public List<T> listar() {
+    public List<T> obtenerTodos() {
         return dao.buscarTodos();
     }
 }

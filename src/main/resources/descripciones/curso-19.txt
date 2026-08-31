@@ -1,0 +1,7 @@
+Los patrones de diseño recopilan soluciones contrastadas que ayudan a comunicar decisiones y reducir el acoplamiento en sistemas orientados a objetos.
+
+Este curso estudia patrones creacionales, estructurales y de comportamiento, entre ellos Factory Method, Builder, Adapter, Decorator, Facade, Strategy, Observer y Command. Cada patrón se presenta a partir del problema que resuelve, su estructura y las consecuencias de aplicarlo.
+
+Las prácticas invitan a refactorizar diseños rígidos, identificar variaciones y distribuir responsabilidades siguiendo principios SOLID. También se muestran situaciones en las que introducir un patrón añade complejidad innecesaria, para evitar su uso mecánico.
+
+El alumno terminará con criterios para seleccionar y combinar patrones, explicar la arquitectura al equipo y construir soluciones más extensibles, comprobables y mantenibles.

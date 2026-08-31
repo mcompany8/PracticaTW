@@ -1,0 +1,7 @@
+Detectar un defecto antes de que llegue a producción reduce costes y aumenta la confianza con la que un equipo modifica y publica software.
+
+El curso enseña a crear pruebas unitarias y de integración con Jest. Se abordan expectativas, agrupación de casos, preparación y limpieza de datos, pruebas asíncronas, mocks, spies, temporizadores y medición de cobertura.
+
+Los ejercicios muestran cómo aislar dependencias, comprobar casos normales y excepcionales y evitar pruebas frágiles que dependan de detalles internos. También se analiza la relación entre diseño y facilidad de prueba, así como la incorporación de la suite a un proceso automatizado de integración continua.
+
+Al terminar, el participante podrá definir una estrategia de pruebas equilibrada, interpretar fallos con rapidez y mantener una base de código más fiable ante cambios y refactorizaciones.

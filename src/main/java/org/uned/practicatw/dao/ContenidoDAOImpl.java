@@ -1,5 +1,6 @@
 package org.uned.practicatw.dao;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.uned.practicatw.model.Contenido;
 
@@ -12,4 +13,12 @@ public class ContenidoDAOImpl extends GenericDAOImpl<Contenido> implements Conte
         super(Contenido.class, emf);
     }
 
+    @Override
+    public List<Contenido> buscarPorPropietarioOrPublico(Long propietario) {
+        try (EntityManager em = getEntityManager()) {
+            return em.createNamedQuery("Contenido.buscarPorPropietarioOrPublico", Contenido.class)
+                    .setParameter("propietarioId", propietario)
+                    .getResultList();
+        }
+    }
 }

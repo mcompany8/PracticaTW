@@ -1,0 +1,7 @@
+El aprendizaje de la programación comienza por entender cómo representar información y transformar una necesidad en una secuencia precisa de instrucciones.
+
+En este curso se trabajan variables, constantes, tipos de datos, operadores, estructuras condicionales, bucles y funciones. El contenido avanza desde pequeños programas secuenciales hasta soluciones modulares capaces de resolver problemas de mayor complejidad. Los ejemplos permiten practicar la entrada y salida de datos, la validación de información, el seguimiento del flujo de ejecución y la detección de errores.
+
+A lo largo de las unidades, el participante aprenderá a interpretar requisitos sencillos, dividir un problema en partes manejables y escribir código claro. También se introducen hábitos esenciales como utilizar nombres descriptivos, evitar duplicidades, comentar únicamente cuando aporta valor y probar diferentes escenarios antes de considerar finalizada una solución.
+
+Al terminar, el alumno podrá desarrollar programas básicos con autonomía, comprender código escrito por otras personas y afrontar con una base sólida el aprendizaje de lenguajes, frameworks y disciplinas más avanzadas.

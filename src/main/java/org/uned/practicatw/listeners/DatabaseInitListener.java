@@ -4,6 +4,7 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import org.uned.practicatw.dao.CursoDAOImpl;
 import org.uned.practicatw.model.*;
+import org.uned.practicatw.service.ContenidoService;
 import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.ServiceFactory;
 import org.uned.practicatw.service.UsuarioService;
@@ -33,7 +34,7 @@ public class DatabaseInitListener implements ServletContextListener {
         String port = System.getenv("DB_PORT");
         String name = System.getenv("DB_NAME");
         String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
+        String password = System.getenv("DB_PASS");
 
         String url = "jdbc:postgresql://" + host + ":" + port + "/" + name;
 

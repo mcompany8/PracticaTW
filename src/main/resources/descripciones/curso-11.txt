@@ -1,0 +1,7 @@
+Desplegar una solución en AWS requiere comprender qué servicio resuelve cada necesidad y cómo combinar disponibilidad, seguridad, rendimiento y coste.
+
+La formación presenta los fundamentos de la nube y servicios como IAM, EC2, S3, RDS, VPC, balanceo y monitorización. El alumno recorrerá el proceso de publicación de una aplicación, desde la configuración de identidades y redes hasta el almacenamiento y la observación del servicio.
+
+Se analizan principios como mínimo privilegio, separación de entornos, escalabilidad, copias de seguridad y responsabilidad compartida. Las prácticas ayudan a interpretar alternativas y a evitar configuraciones habituales que pueden provocar exposición de recursos o gastos innecesarios.
+
+El curso proporciona una base operativa para desplegar cargas sencillas en AWS y continuar avanzando hacia arquitecturas cloud más automatizadas, resilientes y gobernadas.

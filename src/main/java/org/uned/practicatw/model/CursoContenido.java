@@ -12,6 +12,16 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@NamedQuery(
+        name = "CursoContenido.buscarPorCursoYContenido",
+        query = "SELECT c FROM CursoContenido c WHERE c.curso.id = :cursoId AND c.contenido.id = :contenidoId",
+        resultClass = CursoContenido.class
+)
+@NamedQuery(
+        name = "CursoContenido.buscarPorNotCurso",
+        query = "SELECT c FROM CursoContenido c WHERE c.curso.id != :cursoId",
+        resultClass = CursoContenido.class
+)
 public class CursoContenido implements Serializable {
 
     private static final long serialVersionUID = 1L;

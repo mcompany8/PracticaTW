@@ -1,0 +1,7 @@
+Una API bien diseñada actúa como un contrato estable entre sistemas y reduce considerablemente la complejidad de las integraciones.
+
+En este curso se aprende a modelar recursos, definir rutas y utilizar correctamente los métodos y códigos de estado HTTP. El contenido incluye serialización JSON, validación, paginación, filtrado, ordenación, tratamiento de errores, versionado y documentación de endpoints.
+
+La implementación práctica con Node.js incorpora capas separadas, persistencia, autenticación y controles de autorización. Se revisan principios de idempotencia, nomenclatura coherente, límites de consumo, trazabilidad y protección de datos para evitar APIs difíciles de mantener o inseguras.
+
+Al finalizar, el participante podrá construir, documentar y probar servicios RESTful robustos, con decisiones técnicas justificadas y una estructura adecuada para su evolución.

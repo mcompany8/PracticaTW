@@ -1,0 +1,7 @@
+Automatizar la integración y el despliegue permite entregar cambios más pequeños, verificables y frecuentes sin renunciar a la estabilidad.
+
+La formación recorre el ciclo de una pipeline CI/CD: obtención del código, compilación, pruebas, análisis de calidad, generación de artefactos, promoción entre entornos y despliegue. También se introducen repositorios, contenedores, gestión de configuración e infraestructura como código.
+
+Los ejercicios abordan estrategias de ramas, controles de aprobación, secretos, trazabilidad y mecanismos para detener o revertir una entrega defectuosa. Se presta atención a la observabilidad y a la colaboración entre desarrollo y operaciones para reducir tareas manuales y tiempos de recuperación.
+
+Al completar el curso, el participante podrá diseñar pipelines mantenibles y comprender cómo combinar automatización, seguridad y monitorización para acelerar la entrega de software de forma controlada.

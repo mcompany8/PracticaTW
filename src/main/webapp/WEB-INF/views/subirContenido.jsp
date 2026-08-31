@@ -14,7 +14,7 @@
 
 <form action="app/subirContenido"
       method="post" enctype="multipart/form-data">
-    <input type="file" name="archivo" accept="application/pdf" required>
+    <input type="file" name="archivo"   accept=".pdf, .docx, .doc" required>
     <input type="submit" value="Subir material">
 </form>
 

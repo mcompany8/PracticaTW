@@ -1,8 +1,6 @@
 package org.uned.practicatw.model;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -16,6 +14,13 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries({
+        @NamedQuery(
+                name = "Profesor.obtenerProfesores",
+                query = "SELECT p FROM Profesor p",
+                resultClass = Profesor.class
+        )
+})
 public class Profesor extends Usuario {
 
     @OneToMany(mappedBy = "responsable")

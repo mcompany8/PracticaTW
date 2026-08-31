@@ -1,0 +1,7 @@
+La información adquiere verdadero valor cuando está bien estructurada y puede consultarse de forma fiable, rápida y comprensible.
+
+El curso recorre el diseño de bases de datos relacionales, desde la identificación de entidades y relaciones hasta la creación de tablas con claves, restricciones e integridad referencial. Después se profundiza en SQL mediante consultas SELECT, filtros, ordenación, funciones, agrupaciones, joins, subconsultas y operaciones de inserción, actualización y borrado.
+
+Se utilizan escenarios similares a los de una organización, como clientes, pedidos, productos y facturación. El participante aprenderá a evitar duplicidades mediante normalización, interpretar planes sencillos de consulta, crear índices con criterio y trabajar de forma segura con transacciones.
+
+Al finalizar, el alumno podrá diseñar esquemas coherentes, obtener información útil a partir de varias tablas y realizar las operaciones habituales de gestión de datos en aplicaciones y sistemas de reporting.

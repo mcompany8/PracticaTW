@@ -1,0 +1,7 @@
+La seguridad no debe añadirse al final de un proyecto, sino integrarse en cada decisión de diseño, implementación, prueba y despliegue.
+
+Este curso acerca al desarrollador a las vulnerabilidades más relevantes en aplicaciones, incluyendo fallos de autenticación, autorización, validación, inyección y exposición de información. Se estudian codificación segura, gestión de sesiones, cifrado, secretos, dependencias y registro de eventos.
+
+Los ejemplos permiten comprender riesgos recogidos en OWASP y aplicar controles proporcionados al contexto. Además, se trabajan revisión de código, análisis de dependencias, configuración segura y respuesta ante errores sin revelar datos internos.
+
+El participante adquirirá criterios prácticos para reducir la superficie de ataque, colaborar con equipos de seguridad y construir aplicaciones que protejan adecuadamente la información y las operaciones críticas.

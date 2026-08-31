@@ -1,0 +1,7 @@
+Construir una buena experiencia web exige coordinar correctamente la estructura del contenido, la presentación visual y el comportamiento interactivo.
+
+Esta propuesta formativa enseña a crear páginas con HTML semántico, aplicar estilos con CSS y añadir dinamismo mediante JavaScript. Se trabajan formularios, selectores, modelo de caja, Flexbox, Grid, diseño adaptable, manipulación del DOM, eventos y validaciones ejecutadas en el navegador.
+
+Los ejercicios conducen a la elaboración de interfaces completas que se adaptan a distintos tamaños de pantalla. También se introducen accesibilidad, organización de recursos, compatibilidad entre navegadores, depuración con herramientas de desarrollo y separación de responsabilidades entre estructura, estilos y lógica.
+
+El participante terminará preparado para desarrollar sitios web funcionales desde cero y dispondrá de los fundamentos necesarios para avanzar hacia frameworks frontend y aplicaciones conectadas a servicios externos.

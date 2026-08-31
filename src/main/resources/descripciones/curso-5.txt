@@ -1,0 +1,7 @@
+React permite transformar interfaces complejas en conjuntos de componentes pequeños, reutilizables y más sencillos de mantener.
+
+A lo largo del curso se estudian JSX, componentes funcionales, propiedades, estado, eventos y los hooks esenciales. El alumno aprenderá a crear formularios controlados, compartir información entre componentes, gestionar efectos, consumir APIs y organizar la navegación de una aplicación de página única.
+
+La práctica se centra en decisiones habituales de proyectos reales: composición frente a duplicación, separación entre presentación y lógica, tratamiento de estados de carga y error, reutilización mediante hooks personalizados y optimización de renderizados cuando resulte necesario.
+
+Como resultado, el participante podrá construir aplicaciones React estructuradas, probar su comportamiento y aplicar criterios que faciliten la evolución del código a medida que aumentan los requisitos.
