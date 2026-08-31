@@ -3,6 +3,22 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
+<%-- Si la petición llegó vía forward (caso normal: FrontController -> Command -> forward al JSP),
+     request.getRequestURI() devuelve la ruta INTERNA del JSP (/WEB-INF/views/...), no la pública.
+     La URI/query string originales se exponen en estos atributos especiales del forward. --%>
+<c:set var="urlActual" value="${requestScope['jakarta.servlet.forward.request_uri']}"/>
+<c:if test="${empty urlActual}">
+    <c:set var="urlActual" value="${pageContext.request.requestURI}"/>
+</c:if>
+
+<c:set var="queryStringActual" value="${requestScope['jakarta.servlet.forward.query_string']}"/>
+<c:if test="${empty queryStringActual}">
+    <c:set var="queryStringActual" value="${pageContext.request.queryString}"/>
+</c:if>
+<c:if test="${not empty queryStringActual}">
+    <c:set var="urlActual" value="${urlActual}?${queryStringActual}"/>
+</c:if>
+
 
 <header class="cabecera">
     <a href="${pageContext.request.contextPath}/" class="cabecera__logo-enlace">
@@ -20,8 +36,9 @@
                 <a href="app/perfil" class="cabecera__enlace">Mi cuenta</a>
                 <a href="#confirmar-logout" class="cabecera__enlace">Cerrar sesión</a>
                 <ui:confirmacion id="confirmar-logout"
+                                 urlActual="${urlActual}"
                                  mensaje="¿Seguro que quieres cerrar sesión?"
-                                 urlConfirmar="app/logout"
+                                 urlConfirmar="${pageContext.request.contextPath}/app/logout"
                                  textoConfirmar="Cerrar sesión"/>
             </c:otherwise>
         </c:choose>

@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html>t a
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/modalConfirmacion.css">
     <link rel="stylesheet" type="text/css" href="assets/css/paginas/catalogo.css">
 </head>
 

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@taglib prefix="ui" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/modalConfirmacion.css">
     <link rel="stylesheet" type="text/css" href="assets/css/paginas/curso.css">
 </head>
+
 
 <%@ include file="layout/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
@@ -46,25 +47,19 @@
                         <p class="curso-detalle__aviso">Ya estás inscrito en este curso.</p>
                     </c:when>
                     <c:otherwise>
-                        <form class="curso-detalle__form"
-                              action="app/curso"
-                              method="post">
-                            <input type="hidden" name="accion" value="inscribirse">
-                            <input type="hidden" name="cursoId" value="${curso.id}">
-                            <a href="#confirmar-inscripcion" class="boton boton--primario">
-                                Inscribirme en este curso
-                            </a>
+                        <a href="${urlActual}#confirmar-inscripcion" class="boton boton--primario">
+                            Inscribirme en este curso
+                        </a>
 
-                            <ui:confirmacion id="confirmar-inscripcion"
-                                             mensaje="¿Confirmas tu inscripción en «${curso.titulo}»?"
-                                             accionFormulario="${pageContext.request.contextPath}/app/curso"
-                                             textoConfirmar="Confirmar inscripción">
-                                <jsp:attribute name="camposOcultos">
-                                    <input type="hidden" name="accion" value="inscribirse">
-                                    <input type="hidden" name="cursoId" value="${curso.id}">
-                                </jsp:attribute>
-                            </ui:confirmacion>
-                        </form>
+                        <ui:confirmacion id="confirmar-inscripcion"
+                                         urlActual="${urlActual}"
+                                         mensaje="¿Confirmas tu inscripción en «${curso.titulo}»?"
+                                         accionFormulario="app/inscripcion"
+                                         textoConfirmar="Confirmar inscripción">
+                            <jsp:attribute name="camposOcultos">
+                                <input type="hidden" name="cursoId" value="${curso.id}">
+                            </jsp:attribute>
+                        </ui:confirmacion>
                     </c:otherwise>
                 </c:choose>
             </c:when>
@@ -92,8 +87,6 @@
 
 </main>
 
-
 <%@ include file="layout/footer.jsp" %>
 </body>
 </html>
-

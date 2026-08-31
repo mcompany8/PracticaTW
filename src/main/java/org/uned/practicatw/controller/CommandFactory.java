@@ -21,6 +21,7 @@ public class CommandFactory {
 
 
         commands.put("curso", new VerCursoCommand(cursoService, inscripcionService));
+        commands.put("inscripcion", new InscripcionCommand(inscripcionService, cursoService));
         commands.put("catalogo", new CatalogoCommand(cursoService, tematicaService));
         commands.put("crearCurso", new CrearCursoCommand(cursoService, profesorService));
         commands.put("nuevoCurso", new PrepararFormCursoCommand(profesorService));

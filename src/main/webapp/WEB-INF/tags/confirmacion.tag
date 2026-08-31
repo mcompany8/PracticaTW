@@ -1,6 +1,7 @@
 <%@ tag description="Modal de confirmación CSS-only (sin JavaScript)" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ attribute name="id" required="true" description="Id único del modal, usado como ancla #id" %>
+<%@ attribute name="urlActual" required="true" description="URL completa de la página actual (sin fragmento), para que Cancelar no se resuelva contra el <base>" %>
 <%@ attribute name="titulo" required="false" %>
 <%@ attribute name="mensaje" required="true" %>
 <%@ attribute name="textoConfirmar" required="false" %>
@@ -9,12 +10,12 @@
 <%@ attribute name="camposOcultos" fragment="true" required="false" description="Inputs hidden adicionales del formulario" %>
 
 <div class="modal-confirmacion" id="${id}">
-    <a href="#" class="modal-confirmacion__overlay" aria-label="Cerrar"></a>
+    <a href="${urlActual}#" class="modal-confirmacion__overlay" aria-label="Cerrar"></a>
     <div class="modal-confirmacion__caja" role="dialog" aria-modal="true">
         <h2 class="modal-confirmacion__titulo">${empty titulo ? 'Confirmar acción' : titulo}</h2>
         <p class="modal-confirmacion__texto">${mensaje}</p>
         <div class="modal-confirmacion__acciones">
-            <a href="#" class="boton boton--secundario">Cancelar</a>
+            <a href="${urlActual}#" class="boton boton--secundario">Cancelar</a>
             <c:choose>
                 <c:when test="${not empty accionFormulario}">
                     <form method="post" action="${accionFormulario}" class="modal-confirmacion__form">

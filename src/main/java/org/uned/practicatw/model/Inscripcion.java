@@ -1,10 +1,7 @@
 package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,6 +20,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @NamedQuery(
         name = "Inscripcion.buscarEstudiantesPorCurso",
         query = "SELECT i.estudiante FROM Inscripcion i WHERE i.curso.id = :cursoId"
