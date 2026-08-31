@@ -17,10 +17,11 @@ public class CommandFactory {
         InscripcionService inscripcionService = ServiceFactory.getInscripcionService();
         ContenidoService contenidoService = ServiceFactory.getContenidoService();
         ProfesorService profesorService = ServiceFactory.getProfesorService();
+        TematicaService tematicaService = ServiceFactory.getTematicaService();
 
 
         commands.put("curso", new VerCursoCommand(cursoService, inscripcionService));
-        commands.put("catalogo", new CatalogoCommand(cursoService));
+        commands.put("catalogo", new CatalogoCommand(cursoService, tematicaService));
         commands.put("crearCurso", new CrearCursoCommand(cursoService, profesorService));
         commands.put("nuevoCurso", new PrepararFormCursoCommand(profesorService));
         commands.put("listarUsuarios", new ListarUsuariosCommand(usuarioService));

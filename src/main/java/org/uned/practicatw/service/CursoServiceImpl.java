@@ -28,4 +28,14 @@ public class CursoServiceImpl extends GenericServiceImpl<Curso, CursoDAO> implem
     public List<Curso> obtenerCursosRandom(Integer cantidad) {
         return dao.buscarRandom(cantidad);
     }
+
+    @Override
+    public List<Curso> obtenerTodosConTematicas() {
+        return dao.buscarTodosConTematicas();
+    }
+
+    @Override
+    public List<Curso> obtenerCursosPorTematica(Long tematicaId) {
+        return dao.buscarPorTematica(tematicaId);
+    }
 }

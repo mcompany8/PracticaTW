@@ -23,7 +23,19 @@ import java.util.List;
 )
 @NamedQuery(
         name = "Curso.buscarCursosRandom",
-        query = "SELECT c FROM Curso c ORDER BY FUNCTION('RANDOM') "
+        query = "SELECT c FROM Curso c LEFT JOIN FETCH c.tematicas ORDER BY FUNCTION('RANDOM') "
+)
+@NamedQuery(
+        name = "Curso.buscarTodosConTematicas",
+        query = "SELECT DISTINCT c FROM Curso c LEFT JOIN FETCH c.tematicas ORDER BY c.titulo"
+)
+@NamedQuery(
+        name = "Curso.buscarPorTematica",
+        query = "SELECT DISTINCT c FROM Curso c " +
+                "LEFT JOIN FETCH c.tematicas " +
+                "JOIN c.tematicas tFiltro " +
+                "WHERE tFiltro.id = :tematicaId " +
+                "ORDER BY c.titulo"
 )
 public class Curso {
 
@@ -45,7 +57,7 @@ public class Curso {
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tarea> tareas = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "cursos_tematicas",
             joinColumns = @JoinColumn(

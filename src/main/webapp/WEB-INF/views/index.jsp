@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/modalConfirmacion.css">
     <link rel="stylesheet" type="text/css" href="assets/css/paginas/index.css">
 </head>
 

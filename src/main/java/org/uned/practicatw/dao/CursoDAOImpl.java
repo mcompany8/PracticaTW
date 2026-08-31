@@ -13,7 +13,6 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
 
     @Override
     public List<Curso> buscarPorProfesor(Long idProfesor) {
-
         try (EntityManager em = getEntityManager()) {
             return em.createNamedQuery("Curso.buscarPorProfesor", Curso.class)
                     .setParameter("responsableId", idProfesor)
@@ -24,7 +23,6 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
 
     @Override
     public Curso buscarPorIdAndProfesor(Long id, Long idProfesor) {
-
         try (EntityManager em = getEntityManager()) {
             return em.createNamedQuery("Curso.buscarPorIdYProfesor", Curso.class)
                     .setParameter("responsableId", idProfesor)
@@ -37,12 +35,28 @@ public class CursoDAOImpl extends GenericDAOImpl<Curso> implements CursoDAO {
 
     @Override
     public List<Curso> buscarRandom(Integer cantidad) {
-
         try (EntityManager em = getEntityManager()) {
             return em.createNamedQuery("Curso.buscarCursosRandom", Curso.class)
                     .setMaxResults(cantidad)
                     .getResultList();
         }
 
+    }
+
+    @Override
+    public List<Curso> buscarTodosConTematicas() {
+        try (EntityManager em = getEntityManager()) {
+            return em.createNamedQuery("Curso.buscarTodosConTematicas", Curso.class)
+                    .getResultList();
+        }
+    }
+
+    @Override
+    public List<Curso> buscarPorTematica(Long tematicaId) {
+        try (EntityManager em = getEntityManager()) {
+            return em.createNamedQuery("Curso.buscarPorTematica", Curso.class)
+                    .setParameter("tematicaId", tematicaId)
+                    .getResultList();
+        }
     }
 }

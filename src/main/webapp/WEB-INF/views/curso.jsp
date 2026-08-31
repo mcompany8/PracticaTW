@@ -1,10 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" >
+    <meta charset="utf-8">
     <title>${curso.titulo}</title>
     <base href="${pageContext.request.contextPath}/">
     <link rel="icon" href="imagenes/logo.png" type="favicon/x-icon">
@@ -14,8 +15,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/modalConfirmacion.css">
     <link rel="stylesheet" type="text/css" href="assets/css/paginas/curso.css">
-<%--    <link rel="stylesheet" type="text/css" href="assets/css/paginas/index.css">--%>
 </head>
 
 <%@ include file="layout/header.jsp" %>
@@ -50,9 +51,19 @@
                               method="post">
                             <input type="hidden" name="accion" value="inscribirse">
                             <input type="hidden" name="cursoId" value="${curso.id}">
-                            <button type="submit" class="boton boton--primario">
+                            <a href="#confirmar-inscripcion" class="boton boton--primario">
                                 Inscribirme en este curso
-                            </button>
+                            </a>
+
+                            <ui:confirmacion id="confirmar-inscripcion"
+                                             mensaje="¿Confirmas tu inscripción en «${curso.titulo}»?"
+                                             accionFormulario="${pageContext.request.contextPath}/app/curso"
+                                             textoConfirmar="Confirmar inscripción">
+                                <jsp:attribute name="camposOcultos">
+                                    <input type="hidden" name="accion" value="inscribirse">
+                                    <input type="hidden" name="cursoId" value="${curso.id}">
+                                </jsp:attribute>
+                            </ui:confirmacion>
                         </form>
                     </c:otherwise>
                 </c:choose>
