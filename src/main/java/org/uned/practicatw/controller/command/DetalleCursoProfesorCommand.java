@@ -11,12 +11,12 @@ import org.uned.practicatw.service.InscripcionService;
 
 import java.util.List;
 
-public class DetalleCursoCommand implements Command {
+public class DetalleCursoProfesorCommand implements Command {
 
     private CursoService cursoService;
     private InscripcionService inscripcionService;
 
-    public DetalleCursoCommand(CursoService cursoService, InscripcionService inscripcionService) {
+    public DetalleCursoProfesorCommand(CursoService cursoService, InscripcionService inscripcionService) {
         this.cursoService = cursoService;
         this.inscripcionService = inscripcionService;
     }

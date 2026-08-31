@@ -1,41 +1,81 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<c:set var="title" value="Login"/>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" >
+    <title>Bienvenido a InfoFormacion</title>
+    <base href="${pageContext.request.contextPath}/">
+    <link rel="icon" href="imagenes/logo.png" type="favicon/x-icon">
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/botones.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/paginas/login.css">
+</head>
+
+<%@ include file="layout/header.jsp" %>
+<c:if test="${!empty sessionScope.usuario}">
+    <jsp:include page="/WEB-INF/views/layout/menu.jsp"/>
+</c:if>
+
 <c:set var="credencialesInvalidas" value="${sessionScope.credencialesInvalidas}" scope="page"/>
 <c:remove var="credencialesInvalidas" scope="session"/>
 
-<%@ include file="common/head.jsp" %>
-<%@ include file="common/header.jsp" %>
+<body class="login-page">
 
-<section>
-    <figure class="fig-logo">
-        <img src="assets/img/logo.png" alt="Logo">
-    </figure>
-    <c:choose>
-        <c:when test="${empty sessionScope.usuario}">
-            <form action="app/doLogin" method="post">
-                <fieldset>
-                    <legend>Login</legend>
-                    <div class="campo">
-                        <label for="email">E-mail</label>
-                        <input type="email" name="email" id="email" value="mgarcia@dummy.es"
-                               class="${not empty credencialesInvalidas? 'borde-rojo' : ''}">
-                    </div>
-                    <div class="campo">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" value="pass1">
-                    </div>
-                    <input type="submit" value="Iniciar sesión">
-                </fieldset>
-            </form>
-        </c:when>
-        <c:otherwise>
-            <jsp:useBean id="usuario" scope="session" type="org.uned.practicatw.model.Usuario"/>
-            <h1>Bienvenido <jsp:getProperty name="usuario" property="nombre"/> </h1>
-        </c:otherwise>
-    </c:choose>
+<main class="login">
 
-</section>
+    <div class="login__tarjeta">
 
-<%@ include file="common/footer.jsp" %>
+        <a href="${pageContext.request.contextPath}/" class="login__logo-enlace">
+            <img src="imagenes/logo.png"
+                 alt="InfoFormación" class="login__logo">
+        </a>
+
+        <h1 class="login__titulo">Iniciar sesión</h1>
+
+        <c:if test="${not empty error}">
+            <p class="formulario__aviso formulario__aviso--error" role="alert">${error}</p>
+        </c:if>
+
+        <form class="formulario" method="post"
+              action="app/doLogin">
+
+            <div class="formulario__campo">
+                <label for="email" class="formulario__etiqueta formulario__etiqueta--requerido">
+                    Correo electrónico
+                </label>
+                <input type="email" id="email" name="email" class="formulario__input"
+                       value="mgarcia@dummy.es" required autofocus>
+            </div>
+
+            <div class="formulario__campo">
+                <label for="password" class="formulario__etiqueta formulario__etiqueta--requerido">
+                    Contraseña
+                </label>
+                <input type="password" id="password" name="password" class="formulario__input"
+                       required minlength="5" value="pass1">
+            </div>
+
+            <button type="submit" class="boton boton--primario boton--bloque">Entrar</button>
+        </form>
+
+        <p class="login__registro">
+            ¿No tienes cuenta?
+            <a href="app/registro" class="login__enlace-registro">
+                Regístrate aquí
+            </a>
+        </p>
+
+    </div>
+</main>
+
+
+<%@ include file="layout/footer.jsp" %>
+
+</body>
+
+</html>

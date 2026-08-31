@@ -19,17 +19,19 @@ public class CommandFactory {
         ProfesorService profesorService = ServiceFactory.getProfesorService();
 
 
+        commands.put("curso", new VerCursoCommand(cursoService));
         commands.put("crearCurso", new CrearCursoCommand(cursoService, profesorService));
         commands.put("nuevoCurso", new PrepararFormCursoCommand(profesorService));
         commands.put("listarUsuarios", new ListarUsuariosCommand(usuarioService));
         commands.put("cursosProf", new ListarCursosProfesorCommand(cursoService));
         commands.put("estudiantesCurso", new ListarEstudiantesPorCursoCommand(inscripcionService));
-        commands.put("detalleCurso", new DetalleCursoCommand(cursoService, inscripcionService));
+        commands.put("detalleCurso", new DetalleCursoProfesorCommand(cursoService, inscripcionService));
         commands.put("subirContenido", new SubirContenidoCommand(contenidoService));
         commands.put("cursoContenido", new AccesoAsignarContenidosCommand(contenidoService));
         commands.put("doLogin", new LoginCommand(authService));
         commands.put("logout", new CerrarSesionCommand());
         commands.put("login", new ViewCommand("/WEB-INF/views/login.jsp"));
+        commands.put("registro", new ViewCommand("/WEB-INF/views/registro.jsp"));
         commands.put("inicio", new IndexCommand(cursoService));
         commands.put("contenido", new  ViewCommand("/WEB-INF/views/subirContenido.jsp"));
         commands.put("notFound", new  ViewCommand("/WEB-INF/views/error/404.jsp"));

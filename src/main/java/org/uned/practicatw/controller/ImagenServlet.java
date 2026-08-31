@@ -22,7 +22,7 @@ public class ImagenServlet extends HttpServlet {
         }
 
         String fileName = Path.of(pathInfo).getFileName().toString();
-        Path ruta = AppConfig.IMAGENES_DIR.resolve(fileName);
+        Path ruta = AppConfig.IMAGENES_DIR.resolve(pathInfo.substring(1)).normalize();
 
         if (Files.notExists(ruta) || !Files.isReadable(ruta)) {
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);

@@ -1,0 +1,51 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 3rem 1rem;
+}
+
+.login__tarjeta {
+    width: 100%;
+    max-width: 380px;
+    padding: 2.5rem 2rem;
+    background: #fff;
+    border-radius: var(--radio);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.login__logo-enlace {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.login__logo {
+    height: 48px;
+}
+
+.login__titulo {
+    margin: 0 0 1.5rem;
+    font-size: 1.4rem;
+}
+
+.login__registro {
+    margin: 1.3rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+.login__enlace-registro {
+    color: var(--color-primario);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login__enlace-registro:hover {
+    text-decoration: underline;
+}
+
+.login__tarjeta--ancha {
+    max-width: 520px;
+}

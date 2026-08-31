@@ -54,5 +54,7 @@ public class ApplicationListener implements ServletContextListener {
     private void crearDirectorios() throws IOException {
         Files.createDirectories(AppConfig.CONTENIDO_DIR);
         Files.createDirectories(AppConfig.IMAGENES_DIR);
+        Files.createDirectories(AppConfig.IMAGENES_DIR.resolve("cursos"));
+        Files.createDirectories(AppConfig.IMAGENES_DIR.resolve("tematicas"));
     }
 }

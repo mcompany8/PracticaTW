@@ -43,6 +43,8 @@ public class SeedListener implements ServletContextListener {
 
         copiarArchivos("contenido", AppConfig.CONTENIDO_DIR);
         copiarArchivos("imagenes", AppConfig.IMAGENES_DIR);
+        copiarArchivos("imagenes/cursos", AppConfig.IMAGENES_DIR.resolve("cursos"));
+        copiarArchivos("imagenes/tematicas", AppConfig.IMAGENES_DIR.resolve("tematicas"));
         actualizarContenidosDB();
         actualizarDescripcionesDB();
     }

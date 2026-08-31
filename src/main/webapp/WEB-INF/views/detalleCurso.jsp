@@ -3,14 +3,13 @@
 
 <c:set var="title" value="Login"/>
 
-<%@ include file="common/head.jsp" %>
 <%@ include file="common/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
     <jsp:include page="/WEB-INF/views/common/menu.jsp"/>
 </c:if>
 <main>
 
-    <jsp:include page="bannerCurso.jsp"/>
+    <jsp:include page="components/bannerCurso.jsp"/>
 
 
 <%--    <header class="banner-curso">--%>

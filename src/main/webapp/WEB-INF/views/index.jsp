@@ -1,75 +1,46 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<c:set var="titulo" value="Bienvenido a Infoformation"/>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Bienvenido a InfoFormacion</title>
+    <base href="${pageContext.request.contextPath}/">
+    <link rel="icon" href="imagenes/logo.png" type="favicon/x-icon">
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/botones.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/paginas/index.css">
+</head>
 
-<%@ include file="common/head.jsp" %>
-<%@ include file="common/header.jsp" %>
-
+<%@ include file="layout/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="/WEB-INF/views/common/menu.jsp"/>
+    <jsp:include page="/WEB-INF/views/layout/menu.jsp"/>
 </c:if>
+
+<body>
 
 <main>
 
-    <section class="hero">
-        <div class="hero__content">
-            <h1 class="hero__title">Aprende a tu ritmo con <span class="hero__title-accent">InfoFormación</span></h1>
-            <p class="hero__subtitle">
-                Cursos online creados por profesores expertos. Inscríbete, sigue tu progreso
-                y consigue tus objetivos de aprendizaje.
-            </p>
-            <div class="hero__actions">
-                <a href="${pageContext.request.contextPath}/app/cursos" class="hero__cta hero__cta--primary">
-                    Explorar cursos
-                </a>
-                <a href="${pageContext.request.contextPath}/app/registro" class="hero__cta hero__cta--secondary">
-                    Crear cuenta
-                </a>
-            </div>
-        </div>
-    </section>
+    <%@include file="components/hero.jsp" %>
 
     <section class="cursos-destacados">
         <header class="cursos-destacados__header">
             <h2 class="cursos-destacados__title">Cursos destacados</h2>
-            <a href ="#" class="cursos-destacados__todos">Ver todos los cursos →</a>
+            <a href="#" class="cursos-destacados__todos">Ver todos los cursos →</a>
         </header>
-        <div class="cursos-destacados__grid">
-            <c:forEach var="curso" items="${requestScope.cursosDestacados}">
-                <article class="curso-card">
-                    <div class="curso-card__image-wrapper">
-                        <img
-                                src="imagenes/${curso.imagen}"
-                                alt ="${curso.titulo}"
-                                class="cursos-card__image"
-                        >
-                        <span class="curso-card__level curso-card__level--${curso.nivel}">
-                            <c:choose>
-                                <c:when test="${curso.nivel == 'BASICO'}">Básico</c:when>
-                                <c:when test="${curso.nivel == 'INTERMEDIO'}">Intermedio</c:when>
-                                <c:when test="${curso.nivel == 'AVANZADO'}">Avanzado</c:when>
-                            </c:choose>
-                        </span>
-                    </div>
-                    <div class="curso-card__body">
-                        <h3 class="curso-card__title">${curso.titulo}</h3>
-                        <p class="curso-card__description">${curso.descripcion}</p>
-                    </div>
-                    <div class="curso-card__footer">
-                        <a href="app/curso/${curso.id}}" class="curso-card__link">
-                            Ver curso
-                        </a>
-                    </div>
-                </article>
-            </c:forEach>
-        </div>
-
-
-
+        <jsp:include page="components/cursosGrid.jsp"/>
     </section>
-
 
 </main>
 
-<%@ include file="common/footer.jsp" %>
+<%@ include file="layout/footer.jsp" %>
+
+</body>
+</html>
+
+

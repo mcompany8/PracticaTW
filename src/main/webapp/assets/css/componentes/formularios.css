@@ -1,0 +1,134 @@
+/* formularios.css — bloque común, reutilizable en toda la app */
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.formulario__campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.formulario__etiqueta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+}
+
+.formulario__etiqueta--requerido::after {
+    content: " *";
+    color: var(--color-error);
+}
+
+.formulario__ayuda {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+    margin-top: 0.1rem;
+}
+
+/* Inputs, selects y textareas comparten aspecto */
+.formulario__input,
+.formulario__select,
+.formulario__textarea {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--color-texto);
+    background: #fff;
+    width: 100%;
+}
+
+.formulario__textarea {
+    resize: vertical;
+    min-height: 6rem;
+}
+
+.formulario__input:focus,
+.formulario__select:focus,
+.formulario__textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+/* Estado de error de validación por campo */
+.formulario__input--error,
+.formulario__select--error,
+.formulario__textarea--error {
+    border-color: var(--color-error);
+    background: var(--color-error-fondo);
+}
+
+.formulario__mensaje-error {
+    font-size: 0.8rem;
+    color: var(--color-error);
+    margin-top: 0.1rem;
+}
+
+/* Aviso general del formulario (p. ej. credenciales incorrectas) */
+.formulario__aviso {
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.formulario__aviso--error {
+    background: var(--color-error-fondo);
+    color: var(--color-error);
+}
+
+.formulario__aviso--exito {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+/* Checkbox / radio en línea con su etiqueta */
+.formulario__opcion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.formulario__opcion input[type="checkbox"],
+.formulario__opcion input[type="radio"] {
+    width: auto;
+}
+
+/* Fila de campos lado a lado (p. ej. nombre + apellidos) */
+.formulario__fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.formulario__fila .formulario__campo {
+    flex: 1;
+}
+
+/* Acciones al pie del formulario (enviar, cancelar) */
+.formulario__acciones {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.formulario__acciones .boton {
+    flex: 1;
+}
+
+/* Input de tipo file con aspecto consistente */
+.formulario__input[type="file"] {
+    padding: 0.5rem;
+    background: var(--color-fondo);
+}
+
+@media (max-width: 480px) {
+    .formulario__fila {
+        flex-direction: column;
+        gap: 1.1rem;
+    }
+}

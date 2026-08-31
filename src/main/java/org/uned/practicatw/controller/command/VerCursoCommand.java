@@ -6,21 +6,26 @@ import org.uned.practicatw.controller.CommandResult;
 import org.uned.practicatw.model.Curso;
 import org.uned.practicatw.service.CursoService;
 
-import java.util.List;
-
-public class IndexCommand implements Command {
+public class VerCursoCommand implements Command {
 
     private CursoService cursoService;
 
-    public IndexCommand(CursoService cursoService) {
+    public VerCursoCommand(CursoService cursoService) {
         this.cursoService = cursoService;
     }
 
+    /**
+     * @param req
+     * @param resp
+     * @return
+     * @throws Exception
+     */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        List<Curso> cursosDestacados = cursoService.obtenerCursosRandom(6);
-        req.setAttribute("cursos", cursosDestacados);
-        return CommandResult.forward("/WEB-INF/views/index.jsp");
+        Long cursoId = Long.parseLong(req.getParameter("id"));
+        Curso curso = cursoService.obtenerPorId(cursoId).get();
+        req.setAttribute("curso", curso);
+        return  CommandResult.forward("/WEB-INF/views/curso.jsp");
     }
 }

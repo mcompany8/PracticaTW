@@ -44,8 +44,6 @@ public class CrearUsuarioCommand implements Command {
         u.setProvincia(req.getParameter("provincia"));
         u.setCodigopostal(req.getParameter("codigopostal"));
 
-
-
         try {
             usuarioService.crear(u);
             view = "/WEB-INF/views/index.jsp";

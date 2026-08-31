@@ -1,0 +1,101 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30vh;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    text-align: center;
+}
+
+.hero__content {
+    max-width: 700px;
+}
+
+.hero__title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero__title-accent {
+    color: var(--color-accent);
+}
+
+.hero__subtitle {
+    font-size: 1.15rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 2rem;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero__cta {
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero__cta--primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary-dark);
+}
+
+.hero__cta--secondary {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 2px solid var(--color-text-light);
+}
+
+.hero__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.cursos-destacados{
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    & .cursos-destacados__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        & .cursos-destacados__title{
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: var(--color-primario);
+        }
+
+        & .cursos-destacados__todos{
+            color: var(--color-primario-hover);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    & .cursos-destacados__grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+
+    }
+
+}

@@ -1,0 +1,81 @@
+/* menu.css — menú de navegación secundario, debajo de la cabecera */
+
+.menu {
+    grid-area: menu;
+    background: #fff;
+    border-bottom: 1px solid var(--color-borde);
+    position: sticky;
+    top: 0; /* se ajusta más abajo si la cabecera también es sticky */
+    z-index: 90;
+}
+
+.menu__contenido {
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu__enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.9rem 0.9rem;
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.menu__enlace:hover {
+    color: var(--color-primario);
+}
+
+.menu__enlace--activo {
+    color: var(--color-primario);
+    border-bottom-color: var(--color-primario);
+}
+
+.menu__enlace .menu__icono {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* Separador visual entre grupos de enlaces (p. ej. antes de las opciones de admin) */
+.menu__separador {
+    width: 1px;
+    height: 20px;
+    background: var(--color-borde);
+    margin: 0 0.5rem;
+}
+
+/* Empuja un grupo de enlaces (p. ej. "Administración") a la derecha */
+.menu__grupo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu__grupo--derecha {
+    margin-left: auto;
+}
+
+@media (max-width: 640px) {
+    .menu__contenido {
+        overflow-x: auto;
+        padding: 0 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    .menu__enlace {
+        padding: 0.8rem 0.7rem;
+        white-space: nowrap;
+    }
+    .menu__grupo--derecha {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,45 @@
+/*FUENTES*/
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('./fonts/BebasNeue.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Trebuchet MS';
+    src: url('./fonts/TrebuchetMS.ttf') format(truetype);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('./fonts/websymbols-regular-webfont.eot');
+    src: url('./fonts/websymbols-regular-webfont.eot?iefix') format(embedded-opentype);
+    src: url('./fonts/websymbols-regular-webfont.svg') format(svg);
+    src: url('./fonts/websymbols-regular-webfont.ttf') format(truetype);
+    src: url('./fonts/websymbols-regular-webfont.woff') format(woff);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --ancho-contenido: 1100px;
+    --color-primario: #2c5f8a;
+    --color-primario-hover: #1e4463;
+    --color-accent: #f4a259;
+    --color-texto: #1a1a1a;
+    --color-texto-suave: #666;
+    --color-borde: #ddd;
+    --color-fondo: #f5f6f8;
+    --color-error: #c0392b;
+    --color-error-fondo: #fbeaea;
+    --radio: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
