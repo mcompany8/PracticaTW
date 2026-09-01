@@ -31,7 +31,7 @@ public class CommandFactory {
         commands.put("cursosProf", new ListarCursosProfesorCommand(cursoService));
         commands.put("estudiantesCurso", new ListarEstudiantesPorCursoCommand(inscripcionService));
         commands.put("detalleCurso", new DetalleCursoProfesorCommand(cursoService, inscripcionService));
-        commands.put("subirContenido", new SubirContenidoCommand(contenidoService));
+        commands.put("subirContenido", new SubirContenidoCommand(contenidoService, cursoService));
         commands.put("cursoContenido", new AccesoAsignarContenidosCommand(contenidoService));
         commands.put("doLogin", new LoginCommand(authService));
         commands.put("logout", new CerrarSesionCommand());

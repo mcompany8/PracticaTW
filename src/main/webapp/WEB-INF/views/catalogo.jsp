@@ -1,14 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
 <c:set var="title" value="Catálogo"/>
-<c:set var="extraCss" value="${['componentes/botones.css', 'componentes/cursosGrid.css', 'paginas/catalogo.css']}"/>
+<c:set var="extraCss" value=
+        "${[
+        'componentes/cursosGrid.css',
+        'paginas/catalogo.css']}"/>
 
 <%@ include file="layout/head.jspf" %>
 <%@ include file="layout/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="/WEB-INF/views/layout/menu.jsp"/>
+    <jsp:include page="layout/menu.jsp"/>
 </c:if>
 
 <body>
@@ -48,6 +50,6 @@
     </div>
 </main>
 
-<%@ include file="layout/footer.jsp" %>
+<%@ include file="layout/footer.jspf" %>
 </body>
 </html>

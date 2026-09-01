@@ -1,7 +1,0 @@
-La inteligencia artificial reúne técnicas capaces de buscar soluciones, aprender de los datos y asistir en decisiones que antes exigían reglas totalmente manuales.
-
-El curso ofrece una introducción accesible a búsqueda, representación del conocimiento, aprendizaje supervisado y no supervisado, redes neuronales y modelos generativos. Se explica qué tipo de problema aborda cada enfoque y qué datos son necesarios para utilizarlo.
-
-Los casos de uso permiten distinguir entrenamiento, inferencia, evaluación y despliegue, así como interpretar conceptos básicos de precisión, generalización y sesgo. También se abordan privacidad, explicabilidad, supervisión humana y uso responsable de los resultados.
-
-Al completar el recorrido, el alumno podrá conversar con equipos técnicos sobre proyectos de IA, identificar oportunidades razonables y comprender tanto las posibilidades como las limitaciones de estas tecnologías.

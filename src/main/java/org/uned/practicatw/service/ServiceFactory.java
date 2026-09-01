@@ -10,7 +10,6 @@ public class ServiceFactory {
 
     private static AdministradorDAO administradorDAO;
     private static ContenidoDAO contenidoDAO;
-    private static CursoContenidoDAO cursoContenidoDAO;
     private static CursoDAO cursoDAO;
     private static EntregaTareaDAO entregaTareaDAO;
     private static EstudianteDAO estudianteDAO;
@@ -23,7 +22,6 @@ public class ServiceFactory {
 
     private static AdministradorService administradorService;
     private static ContenidoService contenidoService;
-    private static CursoContenidoService cursoContenidoService;
     private static CursoService cursoService;
     private static EntregaTareaService entregaTareaService;
     private static EstudianteService estudianteService;
@@ -44,7 +42,6 @@ public class ServiceFactory {
 
         administradorDAO = new AdministradorDAOImpl(emf);
         contenidoDAO = new ContenidoDAOImpl(emf);
-        cursoContenidoDAO = new CursoContenidoDAOImpl(emf);
         cursoDAO = new CursoDAOImpl(emf);
         entregaTareaDAO = new EntregaTareaDAOImpl(emf);
         estudianteDAO = new EstudianteDAOImpl(emf);
@@ -58,7 +55,6 @@ public class ServiceFactory {
         authService = new AuthServiceImpl(usuarioDAO);
         contenidoService = new ContenidoServiceImpl(contenidoDAO);
         cursoService = new CursoServiceImpl(cursoDAO);
-        cursoContenidoService = new CursoContenidoServiceImpl(cursoContenidoDAO);
         entregaTareaService =  new EntregaTareaServiceImpl(entregaTareaDAO);
         estudianteService =  new EstudianteServiceImpl(estudianteDAO);
         inscripcionService = new InscripcionServiceImpl(inscripcionDAO);
@@ -70,7 +66,6 @@ public class ServiceFactory {
 
     public static AuthService getAuthService() {return authService;}
     public static ContenidoService getContenidoService() {return contenidoService;}
-    public static CursoContenidoService getCursoContenidoService() {return cursoContenidoService;}
     public static CursoService getCursoService() {return cursoService;}
     public static EntregaTareaService getEntregaTareaService() {return entregaTareaService;}
     public static EstudianteService getEstudianteService() {return estudianteService;}

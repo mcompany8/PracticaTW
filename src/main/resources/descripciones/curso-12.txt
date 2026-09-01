@@ -1,7 +1,0 @@
-Adentrarse en Google Cloud implica conocer un catálogo de servicios que permite ejecutar aplicaciones, almacenar datos y analizar información a escala.
-
-El curso introduce la organización de recursos en proyectos, gestión de identidades, redes virtuales, computación, almacenamiento, bases de datos y herramientas de observabilidad. Se comparan opciones administradas y recursos configurables para escoger la alternativa adecuada según cada caso.
-
-Las actividades muestran cómo desplegar una carga básica, controlar accesos, revisar registros y aplicar criterios iniciales de seguridad y costes. También se explican conceptos como regiones, zonas, disponibilidad, escalado y modelo de responsabilidad compartida.
-
-Al finalizar, el participante contará con una visión estructurada de Google Cloud Platform y podrá desenvolverse en la consola, reconocer los servicios principales y diseñar soluciones introductorias.

@@ -47,7 +47,7 @@
 
 
 
-<%--<%@ include file="common/footer.jsp" %>--%>
+<%--<%@ include file="common/footer.jspf" %>--%>
 <%--</body>--%>
 <%--</html>--%>
 
@@ -72,7 +72,7 @@
 
 <%@ include file="layout/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="/WEB-INF/views/layout/menu.jsp"/>
+    <jsp:include page="/src/main/webapp/WEB-INF/views/layout/menu.jsp"/>
 </c:if>
 
 <body>
@@ -142,6 +142,6 @@
     </div>
 </main>
 
-<%@ include file="layout/footer.jsp" %>
+<%@ include file="layout/footer.jspf" %>
 </body>
 </html>

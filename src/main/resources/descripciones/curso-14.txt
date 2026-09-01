@@ -1,7 +1,0 @@
-Elegir la estructura de datos adecuada puede convertir una solución lenta y difícil de mantener en un algoritmo eficiente y expresivo.
-
-La formación profundiza en árboles, grafos, montículos, tablas hash y otras estructuras utilizadas para organizar y recuperar información. Cada bloque combina fundamentos, implementación, recorridos y análisis de complejidad temporal y espacial.
-
-Los problemas prácticos incluyen jerarquías, rutas, prioridades, índices y relaciones entre elementos. El alumno aprenderá a reconocer patrones, comparar alternativas y justificar decisiones según el volumen de datos, las operaciones predominantes y las restricciones del sistema.
-
-Al finalizar, el participante estará mejor preparado para resolver problemas algorítmicos complejos y para seleccionar estructuras que mejoren el rendimiento y la claridad de aplicaciones reales.

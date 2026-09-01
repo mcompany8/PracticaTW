@@ -5,7 +5,6 @@ import jakarta.persistence.EntityManagerFactory;
 import org.uned.practicatw.model.Contenido;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ContenidoDAOImpl extends GenericDAOImpl<Contenido> implements ContenidoDAO {
 
@@ -16,7 +15,7 @@ public class ContenidoDAOImpl extends GenericDAOImpl<Contenido> implements Conte
     @Override
     public List<Contenido> buscarPorPropietarioOrPublico(Long propietario) {
         try (EntityManager em = getEntityManager()) {
-            return em.createNamedQuery("Contenido.buscarPorPropietarioOrPublico", Contenido.class)
+            return em.createNamedQuery("Contenido.buscarPorCurso", Contenido.class)
                     .setParameter("propietarioId", propietario)
                     .getResultList();
         }

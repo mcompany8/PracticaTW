@@ -1,7 +1,0 @@
-Analizar datos con eficacia supone convertir archivos desordenados y valores incompletos en información consistente que apoye decisiones.
-
-Este curso utiliza Python y Pandas para cargar, explorar, limpiar, transformar y combinar datos tabulares. Se practican Series, DataFrame, selección, filtrado, tratamiento de ausencias, conversión de tipos, agrupaciones, tablas dinámicas y uniones entre conjuntos.
-
-Las actividades están basadas en situaciones habituales como ventas, operaciones e indicadores. El alumno aprenderá a detectar anomalías, documentar transformaciones, evitar modificaciones ambiguas y construir procesos reproducibles que puedan ejecutarse de nuevo cuando lleguen datos actualizados.
-
-Al finalizar, el participante podrá preparar datasets, obtener métricas relevantes y desarrollar análisis exploratorios que sirvan como base para informes, automatizaciones o modelos posteriores.

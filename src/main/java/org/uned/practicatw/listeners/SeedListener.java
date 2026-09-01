@@ -45,7 +45,7 @@ public class SeedListener implements ServletContextListener {
         copiarArchivos("imagenes", AppConfig.IMAGENES_DIR);
         copiarArchivos("imagenes/cursos", AppConfig.IMAGENES_DIR.resolve("cursos"));
         copiarArchivos("imagenes/tematicas", AppConfig.IMAGENES_DIR.resolve("tematicas"));
-        actualizarContenidosDB();
+//        actualizarContenidosDB();
         actualizarDescripcionesDB();
     }
 
@@ -76,22 +76,22 @@ public class SeedListener implements ServletContextListener {
         }
     }
 
-    private void actualizarContenidosDB() throws IOException {
-
-        try (var stream = Files.list(AppConfig.CONTENIDO_DIR)) {
-            var archivos = stream.filter(Files::isRegularFile).toList();
-            for (Path p : archivos){
-                this.contenidoService.crear(
-                        Contenido.builder()
-                                .titulo(p.getFileName().toString())
-                                .fechaSubida(LocalDateTime.now())
-                                .publico(true)
-                                .tipoContenido(Contenido.TipoContenido.ARCHIVO)
-                                .build()
-                );
-            }
-        }
-    }
+//    private void actualizarContenidosDB() throws IOException {
+//
+//        try (var stream = Files.list(AppConfig.CONTENIDO_DIR)) {
+//            var archivos = stream.filter(Files::isRegularFile).toList();
+//            for (Path p : archivos){
+//                this.contenidoService.crear(
+//                        Contenido.builder()
+//                                .titulo(p.getFileName().toString())
+//                                .fechaSubida(LocalDateTime.now())
+//                                .publico(true)
+//                                .tipoContenido(Contenido.TipoContenido.ARCHIVO)
+//                                .build()
+//                );
+//            }
+//        }
+//    }
 
     private void actualizarDescripcionesDB() throws URISyntaxException {
         var em = JPAUtil.getEntityManager();

@@ -1,7 +1,0 @@
-Crear una aplicación para varias plataformas desde una única base de código permite concentrar el esfuerzo en la experiencia y en la lógica del producto.
-
-La formación introduce Dart y el sistema de widgets de Flutter para construir interfaces móviles. Se trabajan layouts, temas, navegación, formularios, validación, gestión de estado, asincronía, consumo de APIs y almacenamiento local.
-
-Mediante un proyecto progresivo, el alumno organizará pantallas y componentes reutilizables, tratará estados de carga y error y adaptará la interfaz a distintos dispositivos. También se revisan depuración, pruebas, rendimiento y preparación de la aplicación para su distribución.
-
-Al concluir, el participante podrá desarrollar aplicaciones funcionales para Android e iOS, conectar servicios externos y mantener una arquitectura que facilite nuevas funcionalidades.

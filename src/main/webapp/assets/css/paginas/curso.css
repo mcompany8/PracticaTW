@@ -10,6 +10,17 @@
     padding-bottom: 3rem;
 }
 
+/*
+   NOTA: en curso.jsp las secciones (banner, descripción, acción) cuelgan
+   directamente de <main>, que no tiene la clase .curso-detalle ni gap
+   propio (ver layout.css). Por eso separamos aquí las secciones entre sí
+   con margin-top en vez de depender del gap del flex padre.
+*/
+.curso-detalle__descripcion,
+.curso-detalle__accion {
+    margin-top: 2.5rem;
+}
+
 /* --- Banner --- */
 
 .curso-detalle__banner {
@@ -37,8 +48,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 0.5rem;
-    padding: 2rem;
+    gap: 0.75rem;
+    padding: 2.5rem;
     background: linear-gradient(
             to top,
             rgba(0, 0, 0, 0.75) 0%,
@@ -67,10 +78,11 @@
     width: min(100%, var(--ancho-contenido, 960px));
     margin-inline: auto;
     padding-inline: 1.5rem;
+    padding-block: 0.5rem;
 }
 
 .curso-detalle__subtitulo {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--color-texto-titulo, #1a1a1a);
@@ -89,13 +101,14 @@
 .curso-detalle__accion {
     width: min(100%, var(--ancho-contenido, 960px));
     margin-inline: auto;
-    padding: 1.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 1.1rem;
     background-color: var(--color-fondo, #f7f7f9);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
 }
 
 .curso-detalle__form {
@@ -121,5 +134,16 @@
 
     .curso-detalle__banner-overlay {
         padding: 1.25rem;
+        gap: 0.5rem;
+    }
+
+    .curso-detalle__descripcion,
+    .curso-detalle__accion {
+        margin-top: 1.75rem;
+    }
+
+    .curso-detalle__accion {
+        padding: 1.25rem;
+        gap: 0.85rem;
     }
 }

@@ -6,4 +6,4 @@
 <p>Código de estado: ${requestScope['jakarta.servlet.error.status_code']}</p>
 <p>Tipo: ${requestScope['jakarta.servlet.error.exception_type']}</p>
 
-<%@ include file="../layout/footer.jsp"%>
+<%@ include file="../layout/footer.jspf"%>

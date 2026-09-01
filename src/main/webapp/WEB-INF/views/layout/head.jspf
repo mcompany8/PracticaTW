@@ -1,3 +1,5 @@
+<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
+
 <head>
     <meta charset="UTF-8">
     <base href="${pageContext.request.contextPath}/">
@@ -6,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" href="assets/css/componentes/modalConfirmacion.css">
+    <link rel="stylesheet" href="assets/css/componentes/botones.css">
 
     <%-- Hueco para CSS específico de cada página --%>
     <c:if test="${not empty extraCss}">

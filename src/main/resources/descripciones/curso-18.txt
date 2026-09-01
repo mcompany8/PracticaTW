@@ -1,7 +1,0 @@
-Scrum ayuda a equipos que trabajan en contextos cambiantes a inspeccionar resultados con frecuencia, aprender y adaptar las siguientes decisiones.
-
-El curso explica los valores y pilares del marco, las responsabilidades de Product Owner, Scrum Master y Developers, y el propósito de Sprint, Planning, Daily Scrum, Review y Retrospective. También se estudian Product Backlog, Sprint Backlog, Increment y objetivos.
-
-Los casos prácticos permiten redactar y ordenar elementos de trabajo, establecer un objetivo de Sprint, gestionar cambios y utilizar métricas sin convertirlas en fines por sí mismas. Se presta atención a errores comunes, como asignar tareas desde fuera del equipo o confundir agilidad con ausencia de planificación.
-
-Al finalizar, el participante podrá colaborar de forma más efectiva en un equipo Scrum y comprender cómo la transparencia, la inspección y la adaptación favorecen la entrega continua de valor.
