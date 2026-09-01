@@ -9,6 +9,11 @@ import org.uned.practicatw.service.TematicaService;
 
 import java.util.List;
 
+/**
+ * Muestra el catálogo público de cursos (ruta {@code catalogo}), con filtro
+ * opcional por temática mediante el parámetro {@code tematica}. Accesible sin
+ * necesidad de estar logueado.
+ */
 public class CatalogoCommand implements Command {
 
     private final CursoService cursoService;

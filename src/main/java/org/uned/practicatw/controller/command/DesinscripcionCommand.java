@@ -10,6 +10,16 @@ import org.uned.practicatw.service.InscripcionService;
 
 import java.util.Optional;
 
+/**
+ * Da de baja a un estudiante de un curso (ruta {@code desinscripcion}, POST),
+ * eliminando su {@link Inscripcion}. Gracias al {@code @OnDelete(CASCADE)}
+ * declarado en {@link Inscripcion}, la eliminación arrastra en cascada, a
+ * nivel de base de datos, tanto la valoración del curso (si la había) como
+ * las entregas de tareas asociadas — no hace falta borrarlas aquí a mano.
+ * <p>
+ * Comprueba que la inscripción pertenece al estudiante logueado antes de
+ * borrarla (protección IDOR).
+ */
 public class DesinscripcionCommand implements Command {
 
     private final InscripcionService inscripcionService;

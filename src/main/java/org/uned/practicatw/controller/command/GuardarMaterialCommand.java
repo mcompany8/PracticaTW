@@ -15,6 +15,13 @@ import org.uned.practicatw.utils.FilesUtil;
 
 import java.util.Optional;
 
+/**
+ * Guarda los cambios del formulario de edición de un material (ruta
+ * {@code guardarMaterial}, POST): título, orden (con el mismo mecanismo de
+ * sentinela que el reordenamiento, vía {@link ContenidoService#actualizarOrden}
+ * si cambia) y, opcionalmente, sustitución del archivo/enlace. Si no llega ni
+ * archivo ni URL, se mantiene el {@code uri} que ya tenía el material.
+ */
 public class GuardarMaterialCommand implements Command {
 
     private final ContenidoService contenidoService;

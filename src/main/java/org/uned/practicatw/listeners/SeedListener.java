@@ -7,11 +7,9 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.uned.practicatw.config.AppConfig;
 import org.uned.practicatw.model.ConfiguracionSistema;
-import org.uned.practicatw.model.Contenido;
 import org.uned.practicatw.model.Curso;
 import org.uned.practicatw.service.ConfiguracionService;
 import org.uned.practicatw.service.ContenidoService;
-import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.ServiceFactory;
 import org.uned.practicatw.utils.FilesUtil;
 import org.uned.practicatw.utils.JPAUtil;
@@ -28,16 +26,24 @@ import java.util.List;
 import java.util.stream.Stream;
 
 
+/**
+ * Tercer y último listener en ejecutarse: copia los ficheros semilla
+ * embebidos en el classpath (materiales, imágenes de curso/temática) a los
+ * directorios reales bajo {@code AppConfig.*_DIR}, rellena las descripciones
+ * largas de los cursos leyendo ficheros de texto ({@code descripciones/curso-<id>.txt}),
+ * y crea la fila de {@link ConfiguracionSistema} por defecto si no existe
+ * todavía.
+ * <p>
+ * A diferencia de {@code DatabaseInitListener.insertUsuarios()},
+ * {@link #seedConfiguracion()} sí comprueba primero si la fila ya existe, así
+ * que es seguro ejecutarlo en cada arranque.
+ */
 @Slf4j
 public class SeedListener implements ServletContextListener {
 
     private ContenidoService contenidoService;
     private ConfiguracionService configuracionService;
 
-    /**
-     *
-     * @param sce the ServletContextEvent containing the ServletContext that is being initialized
-     */
     @SneakyThrows
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -53,14 +59,17 @@ public class SeedListener implements ServletContextListener {
         seedConfiguracion();
     }
 
-    /**
-     * @param sce the ServletContextEvent containing the ServletContext that is being destroyed
-     */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         ServletContextListener.super.contextDestroyed(sce);
     }
 
+    /**
+     * Copia todos los ficheros regulares de un recurso del classpath a un
+     * directorio destino en disco. Si el recurso no existe, no hace nada
+     * (permite que el proyecto compile y arranque aunque falte alguna
+     * carpeta de semillas opcional).
+     */
     private void copiarArchivos (String resource, Path destino) {
         try {
             URL url = getClass().getClassLoader().getResource(resource);
@@ -81,6 +90,13 @@ public class SeedListener implements ServletContextListener {
     }
 
 
+    /**
+     * Rellena {@code Curso.descripcionLarga} para los cursos que todavía no
+     * la tienen, leyendo el fichero {@code descripciones/curso-<id>.txt}
+     * correspondiente del classpath. Si no existe el fichero para un curso,
+     * simplemente lo deja sin descripción larga (con un aviso en el log) en
+     * vez de fallar.
+     */
     private void actualizarDescripcionesDB() throws URISyntaxException {
         var em = JPAUtil.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -113,6 +129,7 @@ public class SeedListener implements ServletContextListener {
         }
     }
 
+    /** Crea la fila única de {@link ConfiguracionSistema} (id = 1) si todavía no existe. */
     private void seedConfiguracion() {
         if (configuracionService.obtenerPorId(1L).isEmpty()) {
             ConfiguracionSistema config = ConfiguracionSistema.builder()

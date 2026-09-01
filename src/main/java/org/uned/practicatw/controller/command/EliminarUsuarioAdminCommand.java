@@ -13,6 +13,18 @@ import org.uned.practicatw.service.UsuarioService;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Elimina un usuario desde el panel de administración (ruta
+ * {@code eliminarUsuarioAdmin}, POST). Dos salvaguardas antes de borrar:
+ * un administrador no puede eliminar su propia cuenta, y un {@link Profesor}
+ * con cursos todavía asignados no se puede eliminar hasta reasignarlos o
+ * borrarlos (evita dejar cursos huérfanos, ya que {@code Curso.responsable}
+ * no tiene {@code @OnDelete}).
+ * <p>
+ * Para un {@link org.uned.practicatw.model.Estudiante}, el borrado sí cae en
+ * cascada sobre sus inscripciones (y, con ellas, valoraciones y entregas),
+ * gracias al {@code @OnDelete(CASCADE)} de {@code Inscripcion.estudiante}.
+ */
 public class EliminarUsuarioAdminCommand implements Command {
 
     private final UsuarioService usuarioService;

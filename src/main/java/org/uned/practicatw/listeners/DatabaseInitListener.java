@@ -2,10 +2,7 @@ package org.uned.practicatw.listeners;
 
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
-import org.uned.practicatw.dao.CursoDAOImpl;
 import org.uned.practicatw.model.*;
-import org.uned.practicatw.service.ContenidoService;
-import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.ServiceFactory;
 import org.uned.practicatw.service.UsuarioService;
 import org.uned.practicatw.utils.PasswordUtil;
@@ -21,6 +18,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.stream.Collectors;
 
+/**
+ * Segundo listener en ejecutarse (después de {@code ApplicationListener}):
+ * siembra los usuarios de prueba (4 profesores, 1 administrador, 80
+ * estudiantes) directamente vía JPA, y a continuación ejecuta
+ * {@code /sql/data.sql} (cursos, temáticas, etc.) con JDBC directo, leyendo
+ * la conexión de las variables de entorno {@code DB_HOST}/{@code DB_PORT}/
+ * {@code DB_NAME}/{@code DB_USER}/{@code DB_PASS}.
+ * <p>
+ * El script se ejecuta partiendo el fichero por {@code ;} — cualquier texto
+ * con punto y coma dentro (una descripción larga, por ejemplo) rompería ese
+ * parseo, por eso los datos con texto complejo se siembran en Java
+ * ({@link #insertUsuarios()}) en vez de en el propio {@code .sql}.
+ *
+ * @implNote {@link #insertUsuarios()} no comprueba si los usuarios ya
+ * existen antes de crearlos: en un segundo arranque de la aplicación (sin
+ * limpiar la base de datos), {@code UsuarioServiceImpl.crear()} lanza
+ * {@code EmailYaRegistradoException} para el primer email duplicado — una
+ * {@code RuntimeException} que el {@code catch (SQLException e)} de este
+ * método no captura, así que sube sin control desde {@code contextInitialized()}
+ * e impide que la aplicación termine de desplegarse.
+ */
 public class DatabaseInitListener implements ServletContextListener {
 
     private UsuarioService usuarioService;
@@ -64,6 +82,10 @@ public class DatabaseInitListener implements ServletContextListener {
     }
 
     private void insertUsuarios() {
+
+        if (usuarioService.obtenerTodos().stream().anyMatch(u -> "mgarcia@dummy.es".equals(u.getEmail()))) {
+            return; // ya sembrado en un arranque anterior
+        }
 
         // ===================== PROFESORES (4) =====================
 

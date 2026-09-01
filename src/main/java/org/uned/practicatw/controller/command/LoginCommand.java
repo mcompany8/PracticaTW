@@ -9,6 +9,7 @@ import org.uned.practicatw.service.AuthServiceImpl;
 
 import java.util.Optional;
 
+/** Procesa el envío del formulario de login (ruta {@code doLogin}, POST), guardando el usuario en sesión si las credenciales son correctas. */
 public class LoginCommand implements Command {
 
     private final AuthService authService;

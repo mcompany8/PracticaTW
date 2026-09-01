@@ -11,6 +11,14 @@ import org.uned.practicatw.service.TematicaService;
 
 import java.util.List;
 
+/**
+ * Elimina una temática (ruta {@code eliminarTematica}, POST). Bloquea la
+ * operación con un aviso si algún curso la tiene todavía asignada — ver la
+ * nota de {@link org.uned.practicatw.model.Tematica} sobre por qué (la tabla
+ * intermedia {@code cursos_tematicas} no tiene {@code @OnDelete} en su
+ * columna {@code tematica_id}, así que el borrado reventaría por FK si no se
+ * comprobara antes). Solo accesible por un {@link Administrador}.
+ */
 public class EliminarTematicaCommand implements Command {
 
     private final TematicaService tematicaService;

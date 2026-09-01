@@ -12,6 +12,11 @@ import org.uned.practicatw.service.TematicaService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Muestra el formulario de "Mi cuenta" (ruta {@code perfil}, GET), con las
+ * temáticas de interés precargadas si el usuario es un {@link Estudiante}.
+ * El guardado lo procesa {@code ActualizarPerfilCommand}.
+ */
 public class MostrarPerfilCommand implements Command {
 
     private final TematicaService tematicaService;

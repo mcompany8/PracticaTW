@@ -12,6 +12,15 @@ import org.uned.practicatw.service.CursoService;
 
 import java.util.Optional;
 
+/**
+ * Elimina un material de un curso (ruta {@code eliminarMaterial}, POST) y
+ * cierra el hueco que deja en el {@code orden} del resto de materiales
+ * mediante {@link ContenidoService#cerrarHueco}.
+ * <p>
+ * Doble comprobación de propiedad (curso del profesor logueado, material de
+ * ese curso), comparando solo {@code material.getCurso().getId()} para no
+ * inicializar el proxy lazy de {@code Contenido.curso} sin sesión abierta.
+ */
 public class EliminarMaterialCommand implements Command {
 
     private final ContenidoService contenidoService;

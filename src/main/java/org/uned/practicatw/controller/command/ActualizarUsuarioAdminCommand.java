@@ -9,6 +9,18 @@ import org.uned.practicatw.service.UsuarioService;
 
 import java.util.Optional;
 
+/**
+ * Guarda los cambios del formulario de edición de un usuario desde el panel
+ * de administración (ruta {@code actualizarUsuarioAdmin}, POST): datos
+ * personales para cualquier usuario, y cambio de rol Profesor ↔ Administrador
+ * si no es un {@link org.uned.practicatw.model.Estudiante} (ver la nota de
+ * {@link org.uned.practicatw.model.Usuario} sobre por qué el cambio de rol no
+ * se ofrece hacia/desde Estudiante).
+ * <p>
+ * Bloquea explícitamente que un administrador se quite a sí mismo el rol de
+ * administrador desde este formulario, para no perder acceso a la propia
+ * pantalla que se lo permitiría revertir.
+ */
 public class ActualizarUsuarioAdminCommand implements Command {
 
     private final UsuarioService usuarioService;

@@ -10,6 +10,11 @@ import org.uned.practicatw.service.TematicaService;
 
 import java.util.Optional;
 
+/**
+ * Muestra el formulario de edición de una temática (ruta {@code editarTematica}, GET).
+ * El guardado lo procesa {@code ActualizarTematicaCommand}. Solo accesible
+ * por un {@link Administrador}.
+ */
 public class EditarTematicaCommand implements Command {
 
     private final TematicaService tematicaService;

@@ -17,6 +17,14 @@ import org.uned.practicatw.utils.FilesUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Guarda el formulario de creación de un curso (ruta {@code guardarCurso}, POST).
+ * El {@link Profesor} responsable se toma siempre del usuario en sesión, no
+ * de ningún parámetro del formulario (a diferencia de la
+ * {@code CrearCursoCommand} obsoleta que sustituye), así que no hay forma de
+ * crear un curso a nombre de otro profesor. Redirige al detalle del curso
+ * recién creado.
+ */
 public class GuardarCursoCommand implements Command {
 
     private final CursoService cursoService;

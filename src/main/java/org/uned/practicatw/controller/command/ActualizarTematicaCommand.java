@@ -1,4 +1,3 @@
-// ActualizarTematicaCommand.java (POST)
 package org.uned.practicatw.controller.command;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,6 +13,11 @@ import org.uned.practicatw.utils.FilesUtil;
 
 import java.util.Optional;
 
+/**
+ * Guarda los cambios del formulario de edición de una temática (ruta
+ * {@code actualizarTematica}, POST). Solo accesible por un {@link Administrador}.
+ * La imagen solo se sustituye si llega un fichero nuevo.
+ */
 public class ActualizarTematicaCommand implements Command {
 
     private final TematicaService tematicaService;

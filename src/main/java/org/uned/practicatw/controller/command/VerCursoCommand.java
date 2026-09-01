@@ -10,6 +10,16 @@ import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.InscripcionService;
 
+/**
+ * Muestra el detalle público de un curso (ruta {@code curso}, GET), tal como
+ * se ve desde el catálogo. Si el usuario en sesión es un {@link Estudiante},
+ * carga también su {@link Inscripcion} en ese curso (si existe), para que la
+ * vista pueda ofrecer "Inscribirme" o "Ya estás inscrito" según corresponda.
+ *
+ * @implNote {@code cursoService.obtenerPorId(cursoId).get()} no comprueba
+ * que el {@code Optional} tenga valor — un {@code id} de curso inexistente
+ * lanza {@code NoSuchElementException} sin control en vez de un 404 limpio.
+ */
 public class VerCursoCommand implements Command {
 
     private CursoService cursoService;
@@ -21,12 +31,6 @@ public class VerCursoCommand implements Command {
         this.inscripcionService = inscripcionService;
     }
 
-    /**
-     * @param req
-     * @param resp
-     * @return
-     * @throws Exception
-     */
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 

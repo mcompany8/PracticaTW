@@ -30,7 +30,7 @@
         </c:if>
 
         <form class="formulario" method="post"
-              action="app/registro">
+              action="app/guardarRegistro">
 
             <input type="hidden" name="tipo_usuario" value="ESTUDIANTE">
 

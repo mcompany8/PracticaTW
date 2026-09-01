@@ -7,6 +7,18 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
+/**
+ * Valoración de un estudiante sobre un curso: puntuación de 1 a 5 y comentario
+ * opcional. Relación {@code @OneToOne} con {@link Inscripcion} (no con
+ * {@link Estudiante}/{@link Curso} directamente): la unicidad de "como mucho
+ * una valoración por inscripción" se expresa de forma natural como
+ * {@code unique = true} sobre la FK {@code inscripcion_id}, sin necesitar una
+ * unique constraint compuesta a nivel de tabla.
+ * <p>
+ * El rango 1–5 de {@code valoracion} no se valida aquí con anotaciones de Bean
+ * Validation (el proyecto no usa esa dependencia en ningún otro sitio) sino en
+ * la capa de {@code Command}/{@code Service} que la crea.
+ */
 @Entity
 @Table(name = "valoraciones")
 @Getter
@@ -43,6 +55,7 @@ public class Valoracion implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Inscripcion inscripcion;
 
+    /** Puntuación de 1 a 5. */
     @Column(nullable = false)
     private Integer valoracion;
 

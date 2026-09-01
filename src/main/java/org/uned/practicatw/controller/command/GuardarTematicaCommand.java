@@ -11,6 +11,10 @@ import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.TematicaService;
 import org.uned.practicatw.utils.FilesUtil;
 
+/**
+ * Guarda el formulario de creación de una temática (ruta {@code guardarTematica}, POST).
+ * La imagen es opcional. Solo accesible por un {@link Administrador}.
+ */
 public class GuardarTematicaCommand implements Command {
 
     private final TematicaService tematicaService;

@@ -15,6 +15,11 @@ import org.uned.practicatw.utils.PasswordUtil;
 
 import java.io.IOException;
 
+/**
+ * Procesa el envío del formulario de registro público (parámetro
+ * {@code tipo_usuario}, normalmente {@code "ESTUDIANTE"} desde {@code registro.jsp}),
+ * registrada como ruta {@code guardarRegistro} (POST).
+ */
 public class CrearUsuarioCommand implements Command {
 
     private final UsuarioService usuarioService;
@@ -27,7 +32,6 @@ public class CrearUsuarioCommand implements Command {
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
         Usuario u;
-        String view;
 
         switch (req.getParameter("tipo_usuario")) {
             case "ESTUDIANTE" -> u = new Estudiante();
@@ -46,12 +50,10 @@ public class CrearUsuarioCommand implements Command {
 
         try {
             usuarioService.crear(u);
-            view = "/WEB-INF/views/index.jsp";
         } catch (EmailYaRegistradoException e) {
             req.getSession().setAttribute("errorRegistro", e.getMessage());
-            view = "/WEB-INF/views/index.jsp";
         }
 
-        return CommandResult.redirect(view);
+        return CommandResult.redirect("/app/inicio");
     }
 }

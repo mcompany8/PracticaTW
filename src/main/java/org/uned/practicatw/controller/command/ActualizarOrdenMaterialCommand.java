@@ -12,6 +12,16 @@ import org.uned.practicatw.service.CursoService;
 
 import java.util.Optional;
 
+/**
+ * Cambia la posición de un material dentro de la lista de un curso (ruta
+ * {@code actualizarOrdenMaterial}, POST), delegando el desplazamiento del
+ * resto de materiales en {@link ContenidoService#actualizarOrden}.
+ * <p>
+ * Doble comprobación de propiedad: el curso debe pertenecer al profesor
+ * logueado, y el material debe pertenecer a ese curso (comparando solo
+ * {@code material.getCurso().getId()}, para no inicializar el proxy lazy de
+ * {@code Contenido.curso} sin sesión abierta).
+ */
 public class ActualizarOrdenMaterialCommand implements Command {
 
     private final ContenidoService contenidoService;

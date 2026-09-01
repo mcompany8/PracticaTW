@@ -6,6 +6,12 @@ import org.uned.practicatw.controller.CommandResult;
 import org.uned.practicatw.model.Administrador;
 import org.uned.practicatw.model.Usuario;
 
+/**
+ * Muestra el formulario de creación de un usuario desde el panel de
+ * administración (ruta {@code crearUsuarioAdmin}, GET). El guardado lo
+ * procesa {@code GuardarUsuarioAdminCommand}. Solo accesible por un
+ * {@link Administrador}.
+ */
 public class MostrarCrearUsuarioAdminCommand implements Command {
 
     @Override

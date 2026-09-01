@@ -7,6 +7,20 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
+/**
+ * Entidad de unión explícita entre {@link Estudiante} y {@link Tematica},
+ * representando el interés de un estudiante por un área formativa concreta.
+ * <p>
+ * Se modela como entidad propia (en vez de un {@code @ManyToMany} implícito
+ * con {@code @JoinTable}, como sí se hace en {@code Curso.tematicas}) precisamente
+ * para poder declarar {@code @OnDelete(CASCADE)} de forma independiente en
+ * <b>cada</b> lado de la relación: borrar un {@link Estudiante} limpia sus
+ * filas aquí, y borrar una {@link Tematica} también — algo que un
+ * {@code @ManyToMany} implícito no permite, porque esa anotación solo cubre
+ * la FK que apunta al lado que declara el mapeo, no las dos.
+ * <p>
+ * La combinación {@code (estudiante_id, tematica_id)} es única.
+ */
 @Entity
 @Table(
         name = "estudiantes_tematicas",

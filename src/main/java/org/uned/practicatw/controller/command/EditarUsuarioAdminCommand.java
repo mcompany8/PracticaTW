@@ -9,6 +9,12 @@ import org.uned.practicatw.service.UsuarioService;
 
 import java.util.Optional;
 
+/**
+ * Muestra el formulario de edición de un usuario desde el panel de
+ * administración (ruta {@code editarUsuarioAdmin}, GET). El guardado lo
+ * procesa {@code ActualizarUsuarioAdminCommand}. Solo accesible por un
+ * {@link Administrador}.
+ */
 public class EditarUsuarioAdminCommand implements Command {
 
     private final UsuarioService usuarioService;

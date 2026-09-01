@@ -11,6 +11,13 @@ import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.ConfiguracionService;
 import org.uned.practicatw.utils.FilesUtil;
 
+/**
+ * Guarda los cambios del formulario de configuración global (ruta
+ * {@code guardarConfiguracion}, POST). El número de cursos recomendados se
+ * acota siempre a [1, 12], independientemente de lo que llegue en el
+ * formulario. La imagen del hero solo se sustituye si llega un fichero nuevo.
+ * Solo accesible por un {@link Administrador}.
+ */
 public class GuardarConfiguracionCommand implements Command {
 
     private final ConfiguracionService configuracionService;

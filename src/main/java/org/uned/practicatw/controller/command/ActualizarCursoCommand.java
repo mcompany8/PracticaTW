@@ -17,6 +17,15 @@ import org.uned.practicatw.utils.FilesUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Guarda los cambios del formulario de edición de un curso (título,
+ * descripción, nivel, duración, imagen y temáticas), en la pestaña
+ * "Información" de {@code DetalleCursoProfesorCommand} (ruta {@code actualizarCurso}, POST).
+ * <p>
+ * Comprueba que el curso pertenece al profesor logueado antes de tocarlo
+ * (protección IDOR). La imagen solo se sustituye si llega un fichero nuevo;
+ * las temáticas se reemplazan por completo con lo marcado en el formulario.
+ */
 public class ActualizarCursoCommand implements Command {
 
     private final CursoService cursoService;

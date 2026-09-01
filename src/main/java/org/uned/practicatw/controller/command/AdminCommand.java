@@ -1,3 +1,4 @@
+// AdminCommand.java
 package org.uned.practicatw.controller.command;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,6 +12,16 @@ import org.uned.practicatw.service.ValoracionService;
 
 import java.util.List;
 
+/**
+ * Panel de administración (ruta {@code admin}): estadísticas globales de la
+ * plataforma (usuarios por rol, cursos, inscripciones, valoración media) y
+ * accesos a la gestión de usuarios, temáticas y configuración.
+ * <p>
+ * Los totales se calculan sobre las listas completas devueltas por
+ * {@code obtenerTodos()} de cada servicio, en vez de con consultas
+ * {@code COUNT} dedicadas — suficiente para el volumen de datos de esta
+ * práctica, aunque no sería la aproximación adecuada a mayor escala.
+ */
 public class AdminCommand implements Command {
 
     private final UsuarioService usuarioService;

@@ -12,6 +12,12 @@ import org.uned.practicatw.service.CursoService;
 
 import java.util.Optional;
 
+/**
+ * Muestra el formulario de edición de un material (ruta {@code editarMaterial}, GET).
+ * El guardado real lo procesa {@code GuardarMaterialCommand}, en una ruta
+ * distinta — {@code FrontController} no distingue por verbo HTTP, así que
+ * mostrar y guardar necesitan rutas separadas.
+ */
 public class EditarMaterialCommand implements Command {
 
     private final ContenidoService contenidoService;

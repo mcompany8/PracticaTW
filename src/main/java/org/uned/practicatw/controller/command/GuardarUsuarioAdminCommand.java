@@ -8,6 +8,13 @@ import org.uned.practicatw.service.UsuarioService;
 import org.uned.practicatw.service.exception.EmailYaRegistradoException;
 import org.uned.practicatw.utils.PasswordUtil;
 
+/**
+ * Guarda el formulario de creación de un usuario desde el panel de
+ * administración (ruta {@code guardarUsuarioAdmin}, POST), permitiendo elegir
+ * cualquier rol ({@code ESTUDIANTE}/{@code PROFESOR}/{@code ADMINISTRADOR}) —
+ * a diferencia del registro público, que solo crea estudiantes. Solo
+ * accesible por un {@link Administrador}.
+ */
 public class GuardarUsuarioAdminCommand implements Command {
 
     private final UsuarioService usuarioService;

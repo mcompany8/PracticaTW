@@ -15,6 +15,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 
+/**
+ * Primer listener en ejecutarse al arrancar la aplicación (declarado antes
+ * que {@code DatabaseInitListener} y {@code SeedListener} en {@code web.xml},
+ * no vía {@code @WebListener}, precisamente para garantizar ese orden):
+ * crea la unidad de persistencia, inicializa {@link ServiceFactory} y
+ * {@link CommandFactory}, y crea los directorios de subida de ficheros.
+ * <p>
+ * Los otros dos listeners dependen de que este haya corrido antes —
+ * {@code ServiceFactory.get*Service()} devolvería {@code null} si se
+ * invocara antes de {@code ServiceFactory.init(emf)}.
+ */
 @Slf4j
 public class ApplicationListener implements ServletContextListener {
 

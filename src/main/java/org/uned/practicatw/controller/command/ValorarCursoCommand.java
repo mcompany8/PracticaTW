@@ -12,6 +12,16 @@ import org.uned.practicatw.service.ValoracionService;
 
 import java.util.Optional;
 
+/**
+ * Guarda la valoración (1 a 5, con comentario opcional) de un estudiante
+ * sobre un curso en el que está inscrito (ruta {@code valorarCurso}, POST).
+ * <p>
+ * Comprueba que la inscripción pertenece al alumno logueado (IDOR), que no
+ * exista ya una valoración para esa inscripción (evita reventar la unique
+ * constraint de {@link Valoracion} si el formulario se reenvía), y valida el
+ * rango de la puntuación en servidor — el {@code min}/{@code max} del
+ * formulario HTML es solo una ayuda visual, no una garantía.
+ */
 public class ValorarCursoCommand implements Command {
 
     private final ValoracionService valoracionService;

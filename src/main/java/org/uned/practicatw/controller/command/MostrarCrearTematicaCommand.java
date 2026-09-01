@@ -1,3 +1,4 @@
+// MostrarCrearTematicaCommand.java
 package org.uned.practicatw.controller.command;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -6,6 +7,11 @@ import org.uned.practicatw.controller.CommandResult;
 import org.uned.practicatw.model.Administrador;
 import org.uned.practicatw.model.Usuario;
 
+/**
+ * Muestra el formulario de creación de una temática (ruta {@code crearTematica}, GET).
+ * El guardado lo procesa {@code GuardarTematicaCommand}. Solo accesible por
+ * un {@link Administrador}.
+ */
 public class MostrarCrearTematicaCommand implements Command {
 
     @Override

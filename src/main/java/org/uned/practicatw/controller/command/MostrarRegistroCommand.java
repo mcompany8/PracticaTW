@@ -5,6 +5,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.uned.practicatw.controller.CommandResult;
 import org.uned.practicatw.service.TematicaService;
 
+/**
+ * Muestra el formulario de registro público (ruta {@code registro}, GET),
+ * con el catálogo de temáticas para el selector de áreas de interés. El
+ * guardado lo procesa {@code CrearUsuarioCommand}.
+ */
 public class MostrarRegistroCommand implements Command {
 
     private final TematicaService tematicaService;

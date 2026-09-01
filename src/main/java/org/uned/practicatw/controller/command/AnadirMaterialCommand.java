@@ -15,6 +15,12 @@ import org.uned.practicatw.utils.FilesUtil;
 
 import java.time.LocalDateTime;
 
+/**
+ * Añade un material nuevo a un curso (ruta {@code anadirMaterial}, POST):
+ * un fichero subido o un enlace externo (uno de los dos, no ambos). Antes de
+ * insertar, llama a {@link ContenidoService#hacerHueco} para desplazar al
+ * resto de materiales y no violar la unique constraint {@code (curso_id, orden)}.
+ */
 public class AnadirMaterialCommand implements Command {
 
     private final ContenidoService contenidoService;

@@ -7,6 +7,21 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 
+/**
+ * Material asociado a un {@link Curso} (documento, enlace externo...),
+ * identificado por su {@code titulo} y localizado mediante {@code uri}
+ * — el nombre de fichero guardado en {@code CONTENIDO_DIR} para archivos
+ * subidos, o una URL completa para enlaces externos (distinguidos por
+ * prefijo {@code http(s)://} en las vistas, no por un campo de tipo explícito).
+ * <p>
+ * {@code orden} determina la posición del material dentro de la lista del
+ * curso, y está sujeto a la unique constraint {@code (curso_id, orden)}: no
+ * puede haber dos materiales del mismo curso con el mismo orden. Insertar,
+ * reordenar o eliminar un material implica desplazar el {@code orden} del
+ * resto (ver {@code ContenidoDAO.hacerHueco}/{@code cerrarHueco}/{@code actualizarOrden}),
+ * usando siempre una posición "sentinela" fuera de rango como paso
+ * intermedio para no violar la constraint mientras se reordena.
+ */
 @Entity
 @Table(
         name = "contenidos",
@@ -49,9 +64,12 @@ public class Contenido {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Curso curso;
 
+    /** Posición del material en la lista del curso (1-indexado). Ver la nota de
+     *  clase sobre la unique constraint que lo acompaña. */
     @Column(nullable = false)
     private Integer orden;
 
+    /** Nombre de fichero (si se subió un archivo) o URL completa (si es un enlace externo). */
     @Column(length = 2048, nullable = false)
     private String uri;
 

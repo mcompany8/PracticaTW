@@ -1,4 +1,3 @@
-// ListarTematicasCommand.java
 package org.uned.practicatw.controller.command;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,6 +7,7 @@ import org.uned.practicatw.model.Administrador;
 import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.TematicaService;
 
+/** Lista todas las temáticas (ruta {@code listarTematicas}). Solo accesible por un {@link Administrador}. */
 public class ListarTematicasCommand implements Command {
 
     private final TematicaService tematicaService;

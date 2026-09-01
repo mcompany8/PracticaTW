@@ -10,6 +10,15 @@ import org.uned.practicatw.service.CursoService;
 
 import java.util.List;
 
+/**
+ * Muestra la portada (ruta {@code inicio}): hero configurable y una
+ * selección aleatoria de cursos destacados, cuya cantidad depende de
+ * {@link ConfiguracionSistema#getNumCursosRecomendados()}.
+ * <p>
+ * Si por algún motivo no existe la fila de configuración (no debería ocurrir
+ * en circunstancias normales, ver {@code SeedListener}), usa unos valores por
+ * defecto en memoria en vez de fallar.
+ */
 public class IndexCommand implements Command {
 
     private final CursoService cursoService;

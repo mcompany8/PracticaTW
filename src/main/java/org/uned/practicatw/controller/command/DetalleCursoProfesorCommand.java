@@ -12,6 +12,17 @@ import org.uned.practicatw.service.ValoracionService;
 
 import java.util.List;
 
+/**
+ * Panel de gestión de un curso desde el punto de vista del profesor (ruta
+ * {@code detalleCurso}), organizado en pestañas mediante el parámetro
+ * {@code vista} ({@code info} por defecto, {@code materiales},
+ * {@code matriculados}, {@code estadisticas}): carga solo los datos que
+ * necesita la pestaña activa, no todos a la vez.
+ * <p>
+ * Comprueba que el curso pertenece al profesor logueado antes de mostrar
+ * nada (protección IDOR) — el resto de {@code Command} que actúan sobre
+ * materiales/matriculados de este mismo curso replican esa misma comprobación.
+ */
 public class DetalleCursoProfesorCommand implements Command {
 
     private final CursoService cursoService;

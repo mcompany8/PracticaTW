@@ -7,6 +7,10 @@ import org.uned.practicatw.model.Profesor;
 import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.TematicaService;
 
+/**
+ * Muestra el formulario de creación de un curso (ruta {@code crearCurso}, GET).
+ * El guardado lo procesa {@code GuardarCursoCommand}.
+ */
 public class MostrarCrearCursoCommand implements Command {
 
     private final TematicaService tematicaService;

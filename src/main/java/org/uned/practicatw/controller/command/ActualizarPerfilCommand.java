@@ -10,6 +10,15 @@ import org.uned.practicatw.service.EstudianteTematicaService;
 import org.uned.practicatw.service.TematicaService;
 import org.uned.practicatw.service.UsuarioService;
 
+/**
+ * Guarda los cambios del formulario de "Mi cuenta" (ruta {@code actualizarPerfil}, POST):
+ * datos personales para cualquier usuario, y temáticas de interés si es un
+ * {@link Estudiante}.
+ * <p>
+ * Nunca lee un id de usuario del formulario — opera siempre sobre
+ * {@code session.getAttribute("usuario")}, así que por construcción no hay
+ * forma de que un usuario edite la cuenta de otro.
+ */
 public class ActualizarPerfilCommand implements Command {
 
     private final UsuarioService usuarioService;

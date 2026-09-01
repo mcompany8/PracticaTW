@@ -9,6 +9,7 @@ import org.uned.practicatw.service.CursoService;
 
 import java.util.List;
 
+/** Muestra los cursos de los que es responsable el profesor en sesión (ruta {@code cursosProf}). */
 public class ListarCursosProfesorCommand implements Command {
 
     private final CursoService cursoService;

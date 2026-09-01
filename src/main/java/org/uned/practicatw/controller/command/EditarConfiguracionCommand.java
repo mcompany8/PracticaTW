@@ -7,6 +7,11 @@ import org.uned.practicatw.model.Administrador;
 import org.uned.practicatw.model.Usuario;
 import org.uned.practicatw.service.ConfiguracionService;
 
+/**
+ * Muestra el formulario de configuración global de la plataforma (ruta
+ * {@code editarConfiguracion}): texto e imagen del hero de la portada, número
+ * de cursos recomendados. Solo accesible por un {@link Administrador}.
+ */
 public class EditarConfiguracionCommand implements Command {
 
     private final ConfiguracionService configuracionService;

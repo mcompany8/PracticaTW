@@ -23,6 +23,7 @@ public class CommandFactory {
         ValoracionService valoracionService = ServiceFactory.getValoracionService();
         ConfiguracionService configuracionService = ServiceFactory.getConfiguracionService();
 
+        commands.put("guardarRegistro", new CrearUsuarioCommand(usuarioService));
         commands.put("editarConfiguracion", new EditarConfiguracionCommand(configuracionService));
         commands.put("guardarConfiguracion", new GuardarConfiguracionCommand(configuracionService));
         commands.put("listarTematicas", new ListarTematicasCommand(tematicaService));
@@ -55,22 +56,18 @@ public class CommandFactory {
         commands.put("desinscripcion", new DesinscripcionCommand(inscripcionService));
         commands.put("catalogo", new CatalogoCommand(cursoService, tematicaService));
         commands.put("cursosProf", new ListarCursosProfesorCommand(cursoService));
-        commands.put("estudiantesCurso", new ListarEstudiantesPorCursoCommand(inscripcionService));
         commands.put("detalleCurso", new DetalleCursoProfesorCommand(
                 cursoService,
                 inscripcionService,
                 contenidoService,
                 tematicaService,
                 valoracionService));
-        commands.put("subirContenido", new SubirContenidoCommand(contenidoService, cursoService));
-        commands.put("cursoContenido", new AccesoAsignarContenidosCommand(contenidoService));
         commands.put("valorarCurso", new ValorarCursoCommand(valoracionService, inscripcionService));
         commands.put("doLogin", new LoginCommand(authService));
         commands.put("logout", new CerrarSesionCommand());
         commands.put("login", new ViewCommand("/WEB-INF/views/login.jsp"));
         commands.put("registro", new MostrarRegistroCommand(tematicaService));
         commands.put("inicio", new IndexCommand(cursoService, configuracionService));
-        commands.put("contenido", new  ViewCommand("/WEB-INF/views/subirContenido.jsp"));
         commands.put("notFound", new  ViewCommand("/WEB-INF/views/error/404.jsp"));
 
     }
