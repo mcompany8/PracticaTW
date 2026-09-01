@@ -2,6 +2,8 @@ package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -32,13 +34,22 @@ import java.util.List;
 )
 @NamedQuery(
         name = "Inscripcion.buscarPorCursoAndEstudiante",
-        query = "SELECT i FROM Inscripcion i WHERE i.curso.id = :cursoId AND i.estudiante.id = :estudianteId"
+        query = "SELECT i FROM Inscripcion i " +
+                "LEFT JOIN FETCH i.valoracion " +
+                "WHERE i.curso.id = :cursoId AND i.estudiante.id = :estudianteId"
 )
 @NamedQuery(
         name = "Inscripcion.buscarPorEstudiante",
         query = "SELECT i FROM Inscripcion i " +
                 "JOIN FETCH i.curso c " +
                 "WHERE i.estudiante.id = :estudianteId " +
+                "ORDER BY i.fechaInscripcion DESC"
+)
+@NamedQuery(
+        name = "Inscripcion.buscarPorCurso",
+        query = "SELECT i FROM Inscripcion i " +
+                "JOIN FETCH i.estudiante " +
+                "WHERE i.curso.id = :cursoId " +
                 "ORDER BY i.fechaInscripcion DESC"
 )
 public class Inscripcion implements Serializable {
@@ -52,6 +63,7 @@ public class Inscripcion implements Serializable {
             name = "estudiante_id",
             foreignKey = @ForeignKey(name = "fk_inscripcion_estudiante")
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Estudiante estudiante;
 
 
@@ -60,6 +72,7 @@ public class Inscripcion implements Serializable {
             name = "curso_id",
             foreignKey = @ForeignKey(name = "fk_inscripcion_curso")
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Curso curso;
 
     @Column(name = "fecha_inscripcion")
@@ -67,6 +80,9 @@ public class Inscripcion implements Serializable {
 
     @OneToMany(mappedBy = "inscripciones", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EntregaTarea> entregaTareas = new ArrayList<>();
+
+    @OneToOne(mappedBy = "inscripcion", fetch = FetchType.LAZY)
+    private Valoracion valoracion;
 
     public String getFechaInscripcionFormateada() {
         return fechaInscripcion != null

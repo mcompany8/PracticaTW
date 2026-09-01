@@ -2,6 +2,8 @@ package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,9 @@ import java.util.List;
 )
 @NamedQuery(
         name = "Curso.buscarPorIdYProfesor",
-        query = "SELECT c FROM Curso c WHERE c.responsable.id = :responsableId AND c.id = :id"
+        query = "SELECT c FROM Curso c " +
+                "LEFT JOIN FETCH c.tematicas " +
+                "WHERE c.responsable.id = :responsableId AND c.id = :id"
 )
 @NamedQuery(
         name = "Curso.buscarCursosRandom",
@@ -71,6 +75,7 @@ public class Curso {
                     nullable = false
             )
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Tematica> tematicas = new ArrayList<>();
 
     @ManyToOne

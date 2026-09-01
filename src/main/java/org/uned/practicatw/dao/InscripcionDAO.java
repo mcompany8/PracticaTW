@@ -12,5 +12,8 @@ public interface InscripcionDAO extends GenericDAO<Inscripcion> {
     public List<Curso> buscarCursosPorEstudiante(Long estudianteId);
     public Inscripcion buscarPorCursoAndEstudiante(Long cursoId, Long estudianteId);
     public List<Inscripcion> buscarPorEstudiante (Long estudianteId);
+    public List<Inscripcion> buscarPorCurso (Long cursoId);
+
+
 
 }

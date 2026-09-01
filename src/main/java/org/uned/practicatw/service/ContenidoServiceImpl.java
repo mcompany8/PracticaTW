@@ -15,7 +15,22 @@ public class ContenidoServiceImpl extends GenericServiceImpl<Contenido, Contenid
     }
 
     @Override
-    public List<Contenido> obtenerPorPropietarioOrPublico(Long idPropietario) {
-        return dao.buscarPorPropietarioOrPublico(idPropietario);
+    public List<Contenido> obtenerPorCurso(Long cursoId) {
+        return dao.buscarPorCurso(cursoId);
+    }
+
+    @Override
+    public void actualizarOrden(Long cursoId, Long materialId, Integer ordenViejo, Integer ordenNuevo) {
+        dao.actualizarOrden(cursoId, materialId, ordenViejo, ordenNuevo);
+    }
+
+    @Override
+    public void hacerHueco(Long cursoId, Integer orden) {
+        dao.hacerHueco(cursoId, orden);
+    }
+
+    @Override
+    public void cerrarHueco(Long cursoId, Integer ordenEliminado) {
+        dao.cerrarHueco(cursoId, ordenEliminado);
     }
 }

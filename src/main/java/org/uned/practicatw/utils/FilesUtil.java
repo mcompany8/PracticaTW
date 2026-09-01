@@ -19,19 +19,20 @@ public class FilesUtil {
             "application/msword", "doc",
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx",
             "image/jpeg", "jpeg",
-            "image/png", "png"
+            "image/png", "png",
+            "image/webp", "webp"
     );
 
     private FilesUtil() {}
 
-    public static void copy (Part part, Path out) throws IOException {
+    public static String copy(Part part, Path out) throws IOException {
 
         String fileName = part.getSubmittedFileName();
         String contentType = part.getContentType();
         String extension = TIPOS_PERMITIDOS.get(contentType);
 
-        if (part.getSize() == 0 ) {
-            throw new FicheroInvalidoException (fileName);
+        if (part.getSize() == 0) {
+            throw new FicheroInvalidoException(fileName);
         }
 
         if (extension == null) {
@@ -41,10 +42,10 @@ public class FilesUtil {
         fileName += "." + extension;
         Files.copy(part.getInputStream(), out.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
 
+        return fileName;
     }
 
-    public static void copy (Path in, Path out) throws IOException {
-
+    public static void copy(Path in, Path out) throws IOException {
         Files.copy(in, out.resolve(in.getFileName()), StandardCopyOption.REPLACE_EXISTING);
     }
 }

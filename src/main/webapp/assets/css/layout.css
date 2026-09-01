@@ -6,10 +6,9 @@ html, body {
 
 body {
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "cabecera"
-        "menu"
         "principal"
         "pie";
     min-height: 100vh;
@@ -44,7 +43,10 @@ body {
 
 .cabecera__nav {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
 }
 
 .cabecera__enlace {
@@ -60,8 +62,22 @@ body {
     text-decoration: underline;
 }
 
+.cabecera__separador {
+    width: 1px;
+    height: 18px;
+    background: var(--color-borde);
+}
+
 .cabecera__enlace--activo {
     color: var(--color-primario-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+    .cabecera__separador {
+        display: none;
+    }
 }
 
 /* ==================== CONTENIDO PRINCIPAL ==================== */

@@ -32,4 +32,9 @@ public class InscripcionServiceImpl extends GenericServiceImpl<Inscripcion, Insc
     public List<Inscripcion> obtenerPorEstudiante(Long estudianteId) {
         return dao.buscarPorEstudiante(estudianteId);
     }
+
+    @Override
+    public List<Inscripcion> obtenerPorCurso(Long cursoId) {
+        return dao.buscarPorCurso(cursoId);
+    }
 }

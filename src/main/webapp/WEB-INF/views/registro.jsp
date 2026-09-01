@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 
 <c:set var="title" value="${curso.titulo}}"/>
 <c:set var="extraCss" value=
@@ -9,12 +10,13 @@
 
 <%@ include file="layout/head.jspf" %>
 <%@ include file="layout/header.jsp" %>
-<c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="/src/main/webapp/WEB-INF/views/layout/menu.jsp"/>
-</c:if>
 
 <c:set var="credencialesInvalidas" value="${sessionScope.credencialesInvalidas}" scope="page"/>
 <c:remove var="credencialesInvalidas" scope="session"/>
+
+<%-- IDs ya marcados en un reenvío tras error, con comas de guarda en los extremos
+     para poder comparar por id completo y no por coincidencia de subcadena --%>
+<c:set var="tematicasSeleccionadas" value=",${fn:join(paramValues.tematicasIds, ',')},"/>
 
 <body class="login-page">
 
@@ -97,6 +99,27 @@
                            inputmode="numeric" pattern="[0-9]{5}" value="${param.codigoPostal}">
                 </div>
             </div>
+
+            <fieldset class="formulario__campo">
+                <legend class="formulario__etiqueta">Temáticas de interés</legend>
+
+                <c:choose>
+                    <c:when test="${empty tematicas}">
+                        <p class="formulario__ayuda">No hay temáticas disponibles todavía.</p>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="formulario__opciones-grid">
+                            <c:forEach var="tematica" items="${tematicas}">
+                                <label class="formulario__opcion">
+                                    <input type="checkbox" name="tematicasIds" value="${tematica.id}"
+                                        ${fn:contains(tematicasSeleccionadas, ','.concat(tematica.id).concat(',')) ? 'checked' : ''}>
+                                        ${tematica.titulo}
+                                </label>
+                            </c:forEach>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </fieldset>
 
             <button type="submit" class="boton boton--primario boton--bloque">Crear cuenta</button>
         </form>

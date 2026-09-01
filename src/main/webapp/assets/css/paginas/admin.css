@@ -1,0 +1,9 @@
+/* assets/css/paginas/admin.css */
+
+.detalle-curso__panel--ancho {
+    max-width: none;
+}
+
+.admin-opciones {
+    margin-top: 2rem;
+}

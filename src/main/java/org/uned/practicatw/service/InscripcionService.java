@@ -11,4 +11,5 @@ public interface InscripcionService extends GenericService<Inscripcion> {
     List<Curso> obtenerCursosPorEstudiante (Long estudianteId);
     Inscripcion obtenerPorCursoAndEstudiante (Long cursoId, Long estudianteId);
     List<Inscripcion> obtenerPorEstudiante (Long estudianteId);
+    List<Inscripcion> obtenerPorCurso(Long cursoId);
 }

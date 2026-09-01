@@ -61,4 +61,14 @@ public class InscripcionDAOImpl extends GenericDAOImpl<Inscripcion> implements I
             return query.getResultList();
         }
     }
+
+    @Override
+    public List<Inscripcion> buscarPorCurso(Long cursoId) {
+        try (EntityManager em = getEntityManager()) {
+            TypedQuery<Inscripcion> query = em.createNamedQuery(
+                    "Inscripcion.buscarPorCurso", Inscripcion.class);
+            query.setParameter("cursoId", cursoId);
+            return query.getResultList();
+        }
+    }
 }

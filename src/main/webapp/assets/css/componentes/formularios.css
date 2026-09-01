@@ -94,6 +94,12 @@
     font-size: 0.9rem;
 }
 
+.formulario__opciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.6rem 1rem;
+}
+
 .formulario__opcion input[type="checkbox"],
 .formulario__opcion input[type="radio"] {
     width: auto;
@@ -125,6 +131,8 @@
     padding: 0.5rem;
     background: var(--color-fondo);
 }
+
+
 
 @media (max-width: 480px) {
     .formulario__fila {

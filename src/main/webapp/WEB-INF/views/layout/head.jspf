@@ -1,12 +1,11 @@
-<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
-
+<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %><!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <base href="${pageContext.request.contextPath}/">
-    <title>${titulo}</title>
+    <title>${title}</title>
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/componentes/menu.css">
     <link rel="stylesheet" href="assets/css/componentes/modalConfirmacion.css">
     <link rel="stylesheet" href="assets/css/componentes/botones.css">
 

@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface UsuarioDAO extends GenericDAO<Usuario> {
 
     Optional<Usuario> buscarPorEmail(String email);
+    void cambiarTipo(Long id, String tipo);
 
 
 }

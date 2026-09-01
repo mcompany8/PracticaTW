@@ -3,24 +3,37 @@ package org.uned.practicatw.controller.command;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.uned.practicatw.controller.CommandResult;
+import org.uned.practicatw.model.ConfiguracionSistema;
 import org.uned.practicatw.model.Curso;
+import org.uned.practicatw.service.ConfiguracionService;
 import org.uned.practicatw.service.CursoService;
 
 import java.util.List;
 
 public class IndexCommand implements Command {
 
-    private CursoService cursoService;
+    private final CursoService cursoService;
+    private final ConfiguracionService configuracionService;
 
-    public IndexCommand(CursoService cursoService) {
+    public IndexCommand(CursoService cursoService, ConfiguracionService configuracionService) {
         this.cursoService = cursoService;
+        this.configuracionService = configuracionService;
     }
 
     @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        List<Curso> cursosDestacados = cursoService.obtenerCursosRandom(6);
+        ConfiguracionSistema config = configuracionService.obtenerPorId(1L)
+                .orElseGet(() -> ConfiguracionSistema.builder()
+                        .heroTitulo("Aprende a tu ritmo con InfoFormación")
+                        .heroSubtitulo("")
+                        .numCursosRecomendados(6)
+                        .build());
+
+        List<Curso> cursosDestacados = cursoService.obtenerCursosRandom(config.getNumCursosRecomendados());
+
         req.setAttribute("cursos", cursosDestacados);
+        req.setAttribute("config", config);
         return CommandResult.forward("/WEB-INF/views/index.jsp");
     }
 }

@@ -2,6 +2,8 @@ package org.uned.practicatw.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +23,7 @@ import java.time.LocalDateTime;
 @Builder
 @NamedQuery(
         name = "Contenido.buscarPorCurso",
-        query = "SELECT c FROM Contenido c WHERE c.curso.id = :cursoId ORDER BY titulo ASC",
+        query = "SELECT c FROM Contenido c WHERE c.curso.id = :cursoId ORDER BY orden ASC",
         resultClass =  Contenido.class
 )
 public class Contenido {
@@ -44,6 +46,7 @@ public class Contenido {
             name = "curso_id",
             foreignKey = @ForeignKey(name = "fk_curso")
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Curso curso;
 
     @Column(nullable = false)

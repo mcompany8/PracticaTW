@@ -1,0 +1,279 @@
+/* ============================================
+   miInscripcion.css
+   Detalle de una inscripción del alumno
+   (banner reutilizado de curso.css)
+   ============================================ */
+
+/* --- Barra de metadatos bajo el banner --- */
+
+.inscripcion-detalle__meta {
+    background: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.inscripcion-detalle__meta-fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.inscripcion-detalle__meta-datos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.inscripcion-detalle__meta-dato {
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+.inscripcion-detalle__badge-nivel {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.inscripcion-detalle__badge-nivel--basico      { background: #2e8b57; }
+.inscripcion-detalle__badge-nivel--intermedio  { background: #e08a2e; }
+.inscripcion-detalle__badge-nivel--avanzado    { background: #c0392b; }
+
+.inscripcion-detalle__volver {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.inscripcion-detalle__volver:hover {
+    text-decoration: underline;
+}
+
+/* --- Contenidos --- */
+
+.inscripcion-detalle__contenidos,
+.inscripcion-detalle__valoracion {
+    width: min(100%, var(--ancho-contenido));
+    margin-inline: auto;
+    padding-block: 2rem;
+}
+
+.inscripcion-detalle__contenidos {
+    padding-inline: 1.5rem;
+}
+
+.inscripcion-detalle__vacio {
+    color: var(--color-texto-suave);
+    font-size: 0.95rem;
+}
+
+.contenidos-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contenido-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+}
+
+.contenido-item__icono {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--color-primario);
+}
+
+.contenido-item__cuerpo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.contenido-item__titulo {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-texto);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contenido-item__badge {
+    align-self: flex-start;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    background: var(--color-fondo);
+    color: var(--color-texto-suave);
+}
+
+.contenido-item__badge--pdf     { background: #fbeaea; color: var(--color-error); }
+.contenido-item__badge--enlace  { background: #e8f0fe; color: var(--color-primario); }
+
+.contenido-item__accion {
+    flex-shrink: 0;
+}
+
+/* --- Valoración --- */
+
+.inscripcion-detalle__valoracion {
+    padding-inline: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.valoracion-form {
+    max-width: 480px;
+}
+
+/* Selector de estrellas CSS-only: los input van en orden 5→1 y se
+   invierte visualmente con row-reverse, para poder pintar con ~ todas
+   las estrellas hasta la seleccionada/sobrevolada. */
+.valoracion__estrellas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.15rem;
+}
+
+.valoracion__estrellas input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.valoracion__estrellas label {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--color-borde);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.valoracion__estrellas input:checked ~ label,
+.valoracion__estrellas label:hover,
+.valoracion__estrellas label:hover ~ label {
+    color: var(--color-accent);
+}
+
+.valoracion-resumen {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--color-fondo);
+    border-radius: var(--radio);
+    max-width: 480px;
+}
+
+.valoracion-resumen__estrellas {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.valoracion-resumen__estrella {
+    color: var(--color-borde);
+}
+
+.valoracion-resumen__estrella--llena {
+    color: var(--color-accent);
+}
+
+.valoracion-resumen__comentario {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    line-height: 1.5;
+}
+
+.valoracion-resumen__aviso {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+}
+
+
+/* --- Baja del curso --- */
+
+.inscripcion-detalle__baja {
+    width: min(100%, var(--ancho-contenido));
+    margin-inline: auto;
+    padding: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.inscripcion-detalle__baja-caja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-error-fondo);
+    border: 1px solid #f0c4bd;
+    border-radius: var(--radio);
+}
+
+.inscripcion-detalle__baja-texto .curso-detalle__subtitulo {
+    margin-bottom: 0.4rem;
+    font-size: 1.15rem;
+}
+
+.inscripcion-detalle__baja-aviso {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    max-width: 46ch;
+}
+
+@media (max-width: 640px) {
+    .inscripcion-detalle__baja-caja {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+/* --- Responsive --- */
+
+@media (max-width: 640px) {
+    .inscripcion-detalle__meta-fila {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenido-item {
+        flex-wrap: wrap;
+    }
+
+    .contenido-item__accion {
+        margin-left: auto;
+    }
+
+    .valoracion__estrellas label {
+        font-size: 1.9rem;
+    }
+}

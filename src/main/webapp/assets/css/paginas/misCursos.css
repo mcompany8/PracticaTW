@@ -18,6 +18,14 @@
     font-size: 1rem;
 }
 
+.mis-cursos__cabecera--con-accion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 /* La tarjeta entera es el enlace (sin botón de acción): reutiliza .curso-tarjeta
    de cursosGrid.css pero como <a>, sin nivel/temáticas/botón */
 .curso-tarjeta--enlace {

@@ -24,6 +24,6 @@ public class ListarCursosProfesorCommand implements Command {
         List<Curso> cursos = cursoService.obtenerCursosPorProfesor(profesor.getId());
         request.setAttribute("cursos", cursos);
 
-        return CommandResult.forward("/WEB-INF/views/cursosProf.jsp");
+        return CommandResult.forward("/WEB-INF/views/misCursosProfesor.jsp");
     }
 }

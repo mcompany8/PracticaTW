@@ -24,7 +24,7 @@ public class AccesoAsignarContenidosCommand implements Command {
 
 
         System.out.println();
-        List<Contenido> contenidos = contenidoService.obtenerPorPropietarioOrPublico(propietario.getId());
+        List<Contenido> contenidos = contenidoService.obtenerTodos();
         req.setAttribute("contenidos", contenidos);
         return CommandResult.forward("/WEB-INF/views/asignarContenido.jsp");
     }

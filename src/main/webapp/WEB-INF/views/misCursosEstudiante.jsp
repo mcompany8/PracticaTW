@@ -9,9 +9,6 @@
 
 <%@ include file="layout/head.jspf" %>
 <%@ include file="layout/header.jsp" %>
-<c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="layout/menu.jsp"/>
-</c:if>
 
 <body>
 
@@ -32,7 +29,7 @@
             <c:otherwise>
                 <div class="cursos-grid">
                     <c:forEach var="inscripcion" items="${inscripciones}">
-                        <a href="app/curso?id=${inscripcion.curso.id}"
+                        <a href="app/miInscripcion?id=${inscripcion.curso.id}"
                            class="curso-tarjeta curso-tarjeta--enlace">
 
                             <div class="curso-tarjeta__imagen-contenedor">

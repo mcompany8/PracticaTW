@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
@@ -26,6 +28,7 @@ public class EntregaTarea implements Serializable {
             name = "inscripcion_id",
             foreignKey =  @ForeignKey(name = "fk_entregatarea_inscripcion")
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Inscripcion inscripciones;
 
 
@@ -34,6 +37,7 @@ public class EntregaTarea implements Serializable {
             name = "tarea_id",
             foreignKey = @ForeignKey(name = "fk_entregatarea_tarea")
     )
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Tarea tarea;
 
 }

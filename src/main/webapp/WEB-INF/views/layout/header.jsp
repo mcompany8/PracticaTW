@@ -28,6 +28,32 @@
     <nav class="cabecera__nav">
         <a href="${pageContext.request.contextPath}/" class="cabecera__enlace">Inicio</a>
         <a href="${pageContext.request.contextPath}/app/catalogo" class="cabecera__enlace">Catálogo</a>
+
+        <c:if test="${not empty sessionScope.usuario}">
+            <c:choose>
+                <c:when test="${sessionScope.usuario.tipoUsuario == 'Estudiante'}">
+                    <a href="app/misCursos"
+                       class="cabecera__enlace ${fn:contains(urlActual, '/app/misCursos') ? 'cabecera__enlace--activo' : ''}">
+                        Mis cursos
+                    </a>
+                </c:when>
+                <c:otherwise>
+                    <a href="app/cursosProf"
+                       class="cabecera__enlace ${fn:contains(urlActual, '/app/cursosProf') ? 'cabecera__enlace--activo' : ''}">
+                        Mis cursos
+                    </a>
+                </c:otherwise>
+            </c:choose>
+
+            <c:if test="${sessionScope.usuario.tipoUsuario == 'Administrador'}">
+                <span class="cabecera__separador"></span>
+                <a href="app/listarUsuarios" class="cabecera__enlace">Usuarios</a>
+                <a href="app/admin" class="cabecera__enlace">Administración</a>
+            </c:if>
+
+            <span class="cabecera__separador"></span>
+        </c:if>
+
         <c:choose>
             <c:when test="${empty sessionScope.usuario}">
                 <a href="app/login" class="cabecera__enlace">Iniciar sesión</a>

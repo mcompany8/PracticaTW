@@ -6,8 +6,10 @@ import jakarta.servlet.ServletContextListener;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.uned.practicatw.config.AppConfig;
+import org.uned.practicatw.model.ConfiguracionSistema;
 import org.uned.practicatw.model.Contenido;
 import org.uned.practicatw.model.Curso;
+import org.uned.practicatw.service.ConfiguracionService;
 import org.uned.practicatw.service.ContenidoService;
 import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.ServiceFactory;
@@ -30,6 +32,7 @@ import java.util.stream.Stream;
 public class SeedListener implements ServletContextListener {
 
     private ContenidoService contenidoService;
+    private ConfiguracionService configuracionService;
 
     /**
      *
@@ -40,13 +43,14 @@ public class SeedListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
 
         this.contenidoService = ServiceFactory.getContenidoService();
+        this.configuracionService = ServiceFactory.getConfiguracionService();
 
         copiarArchivos("contenido", AppConfig.CONTENIDO_DIR);
         copiarArchivos("imagenes", AppConfig.IMAGENES_DIR);
         copiarArchivos("imagenes/cursos", AppConfig.IMAGENES_DIR.resolve("cursos"));
         copiarArchivos("imagenes/tematicas", AppConfig.IMAGENES_DIR.resolve("tematicas"));
-//        actualizarContenidosDB();
         actualizarDescripcionesDB();
+        seedConfiguracion();
     }
 
     /**
@@ -76,22 +80,6 @@ public class SeedListener implements ServletContextListener {
         }
     }
 
-//    private void actualizarContenidosDB() throws IOException {
-//
-//        try (var stream = Files.list(AppConfig.CONTENIDO_DIR)) {
-//            var archivos = stream.filter(Files::isRegularFile).toList();
-//            for (Path p : archivos){
-//                this.contenidoService.crear(
-//                        Contenido.builder()
-//                                .titulo(p.getFileName().toString())
-//                                .fechaSubida(LocalDateTime.now())
-//                                .publico(true)
-//                                .tipoContenido(Contenido.TipoContenido.ARCHIVO)
-//                                .build()
-//                );
-//            }
-//        }
-//    }
 
     private void actualizarDescripcionesDB() throws URISyntaxException {
         var em = JPAUtil.getEntityManager();
@@ -122,6 +110,19 @@ public class SeedListener implements ServletContextListener {
                 tx.rollback();
             }
             throw new RuntimeException("Error al sembrar descripciones de cursos.");
+        }
+    }
+
+    private void seedConfiguracion() {
+        if (configuracionService.obtenerPorId(1L).isEmpty()) {
+            ConfiguracionSistema config = ConfiguracionSistema.builder()
+                    .id(1L)
+                    .heroTitulo("Aprende a tu ritmo con InfoFormación")
+                    .heroSubtitulo("Cursos online creados por profesores expertos. Inscríbete, sigue tu progreso y consigue tus objetivos de aprendizaje.")
+                    .numCursosRecomendados(6)
+                    .build();
+            configuracionService.crear(config);
+            log.info("Creada configuración del sistema por defecto");
         }
     }
 

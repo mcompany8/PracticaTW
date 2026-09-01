@@ -46,6 +46,31 @@
     text-decoration: underline;
 }
 
+.login.login--ancho {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 4rem clamp(1.5rem, 8vw, 7rem);
+}
+
 .login__tarjeta--ancha {
-    max-width: 520px;
+    max-width: 640px;
+    padding: 3rem 3.5rem;
+    text-align: left;
+}
+
+.login__tarjeta--ancha .login__titulo,
+.login__tarjeta--ancha .login__registro {
+    text-align: left;
+}
+
+@media (max-width: 780px) {
+    .login.login--ancho {
+        justify-content: center;
+        padding: 3rem 1rem;
+    }
+
+    .login__tarjeta--ancha {
+        padding: 2rem 1.5rem;
+    }
 }

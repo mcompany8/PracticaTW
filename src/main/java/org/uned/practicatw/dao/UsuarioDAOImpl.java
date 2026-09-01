@@ -29,4 +29,22 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDA
             em.close();
         }
     }
+
+    @Override
+    public void cambiarTipo(Long id, String tipo) {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.createNativeQuery("UPDATE usuarios SET tipo_usuario = :tipo WHERE id = :id")
+                    .setParameter("tipo", tipo)
+                    .setParameter("id", id)
+                    .executeUpdate();
+            em.getTransaction().commit();
+        } catch (RuntimeException e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
 }

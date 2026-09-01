@@ -3,51 +3,94 @@ package org.uned.practicatw.controller.command;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.uned.practicatw.controller.CommandResult;
-import org.uned.practicatw.model.Curso;
-import org.uned.practicatw.model.Estudiante;
-import org.uned.practicatw.model.Usuario;
+import org.uned.practicatw.model.*;
+import org.uned.practicatw.service.ContenidoService;
 import org.uned.practicatw.service.CursoService;
 import org.uned.practicatw.service.InscripcionService;
+import org.uned.practicatw.service.TematicaService;
+import org.uned.practicatw.service.ValoracionService;
 
 import java.util.List;
 
 public class DetalleCursoProfesorCommand implements Command {
 
-    private CursoService cursoService;
-    private InscripcionService inscripcionService;
+    private final CursoService cursoService;
+    private final InscripcionService inscripcionService;
+    private final ContenidoService contenidoService;
+    private final TematicaService tematicaService;
+    private final ValoracionService valoracionService;
 
-    public DetalleCursoProfesorCommand(CursoService cursoService, InscripcionService inscripcionService) {
+    public DetalleCursoProfesorCommand(CursoService cursoService,
+                                       InscripcionService inscripcionService,
+                                       ContenidoService contenidoService,
+                                       TematicaService tematicaService,
+                                       ValoracionService valoracionService) {
         this.cursoService = cursoService;
         this.inscripcionService = inscripcionService;
+        this.contenidoService = contenidoService;
+        this.tematicaService = tematicaService;
+        this.valoracionService = valoracionService;
     }
 
+    @Override
     public CommandResult execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
-        Long idCurso = Long.parseLong(req.getParameter("id"));
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
         if (usuario == null) {
-            return CommandResult.redirect(req.getContextPath() + "/login");
+            return CommandResult.redirect("/app/login");
         }
+
+        Long idCurso = Long.parseLong(req.getParameter("id"));
+
+        // IDOR: el curso tiene que pertenecer al profesor logueado
         Curso curso = cursoService.obtenerCursoPorIdYProfesor(idCurso, usuario.getId());
         if (curso == null) {
-            return CommandResult.forward(req.getContextPath() + "/login");
-
+            return CommandResult.forward("/WEB-INF/views/error/404.jsp");
         }
         req.setAttribute("curso", curso);
 
-        String doParam = req.getParameter("do");
-        if (doParam != null) {
-            switch (doParam) {
-                case "verMatriculados" -> {
-                    List<Estudiante> estudiantes = inscripcionService.obtenerEstudiantesPorCurso(idCurso);
-                    req.setAttribute("estudiantes", estudiantes);
-                }
-                default -> {}
-            }
+        String pestana = req.getParameter("vista");
+        if (pestana == null) {
+            pestana = "info";
         }
 
+        switch (pestana) {
 
+            case "materiales" -> {
+                List<Contenido> materiales = contenidoService.obtenerPorCurso(idCurso);
+                req.setAttribute("materiales", materiales);
+            }
 
+            case "matriculados" -> {
+                List<Inscripcion> inscripciones = inscripcionService.obtenerPorCurso(idCurso);
+                req.setAttribute("inscripciones", inscripciones);
+            }
+
+            case "estadisticas" -> {
+                List<Inscripcion> inscripciones = inscripcionService.obtenerPorCurso(idCurso);
+                List<Valoracion> valoraciones = valoracionService.obtenerPorCurso(idCurso);
+
+                double media = valoraciones.stream()
+                        .mapToInt(Valoracion::getValoracion)
+                        .average()
+                        .orElse(0);
+
+                req.setAttribute("totalInscritos", inscripciones.size());
+                req.setAttribute("valoraciones", valoraciones);
+                req.setAttribute("valoracionMedia", valoraciones.isEmpty() ? null : media);
+            }
+
+            // "info" (por defecto): solo hace falta el catálogo de temáticas
+            // para los checkboxes del formulario de edición
+            default -> {
+                req.setAttribute("tematicas", tematicaService.obtenerTodos());
+
+                String tematicasSeleccionadasCsv = curso.getTematicas().stream()
+                        .map(t -> String.valueOf(t.getId()))
+                        .collect(java.util.stream.Collectors.joining(",", ",", ","));
+                req.setAttribute("tematicasSeleccionadasCsv", tematicasSeleccionadasCsv);
+            }
+        }
 
         return CommandResult.forward("/WEB-INF/views/detalleCurso.jsp");
     }

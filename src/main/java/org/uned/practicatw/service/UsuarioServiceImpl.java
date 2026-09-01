@@ -8,7 +8,6 @@ import org.uned.practicatw.service.exception.EmailYaRegistradoException;
 
 import java.util.List;
 
-
 public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, UsuarioDAO> implements UsuarioService {
 
     public UsuarioServiceImpl(UsuarioDAO dao) {
@@ -16,20 +15,7 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, UsuarioDAO> 
     }
 
     @Override
-    public Usuario crear(Usuario usuario) {
-
-        String email = usuario.getEmail();
-
-        dao.buscarPorEmail(email)
-                .ifPresentOrElse(
-                        u -> {
-                            throw new EmailYaRegistradoException(email);
-                        },
-                        () -> {}
-                );
-
-        return dao.guardar(usuario);
-
+    public void cambiarTipo(Long id, String tipo) {
+        dao.cambiarTipo(id, tipo);
     }
-
 }

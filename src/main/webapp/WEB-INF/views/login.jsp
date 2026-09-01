@@ -9,9 +9,6 @@
 
 <%@ include file="layout/head.jspf" %>
 <%@ include file="layout/header.jsp" %>
-<c:if test="${!empty sessionScope.usuario}">
-    <jsp:include page="layout/menu.jsp"/>
-</c:if>
 
 <c:set var="credencialesInvalidas" value="${sessionScope.credencialesInvalidas}" scope="page"/>
 <c:remove var="credencialesInvalidas" scope="session"/>

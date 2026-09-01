@@ -1,0 +1,166 @@
+/* detalleCurso.css — panel de gestión de un curso (profesor) */
+
+.detalle-curso {
+    padding-block: 2rem 3rem;
+}
+
+.detalle-curso__cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.detalle-curso__titulo {
+    margin: 0;
+    color: var(--color-texto);
+}
+
+.detalle-curso__pestanas {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--color-borde);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.detalle-curso__pestana {
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.detalle-curso__pestana:hover {
+    color: var(--color-primario);
+}
+
+.detalle-curso__pestana--activa {
+    color: var(--color-primario);
+    border-bottom-color: var(--color-primario);
+}
+
+.detalle-curso__panel {
+    max-width: 720px;
+}
+
+.detalle-curso__imagen-actual {
+    display: block;
+    width: 220px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radio);
+    margin-bottom: 0.75rem;
+}
+
+.detalle-curso__subtitulo-materiales {
+    margin-top: 2.5rem;
+}
+
+/* --- Tabla de matriculados --- */
+
+.detalle-curso__tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.detalle-curso__tabla th,
+.detalle-curso__tabla td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 0.9rem;
+}
+
+.detalle-curso__tabla th {
+    color: var(--color-texto-suave);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+/* --- Estadísticas --- */
+
+.detalle-curso__stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.detalle-curso__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.2rem 1.6rem;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    min-width: 160px;
+}
+
+.detalle-curso__stat-numero {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.detalle-curso__stat-etiqueta {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+}
+
+.detalle-curso__comentarios {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detalle-curso__comentario {
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+}
+
+.detalle-curso__comentario-texto {
+    margin: 0.4rem 0 0;
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    line-height: 1.5;
+}
+
+.contenido-item__orden-form {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.contenido-item__orden-etiqueta {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.contenido-item__orden-input {
+    width: 4rem;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .detalle-curso__stats {
+        flex-direction: column;
+    }
+}
