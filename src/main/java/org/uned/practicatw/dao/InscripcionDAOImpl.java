@@ -7,6 +7,7 @@ import org.uned.practicatw.model.Curso;
 import org.uned.practicatw.model.Estudiante;
 import org.uned.practicatw.model.Inscripcion;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class InscripcionDAOImpl extends GenericDAOImpl<Inscripcion> implements InscripcionDAO {
@@ -47,6 +48,17 @@ public class InscripcionDAOImpl extends GenericDAOImpl<Inscripcion> implements I
             query.setParameter("cursoId", cursoId);
             query.setParameter("estudianteId", estudianteId);
             return query.getSingleResultOrNull();
+        }
+    }
+
+    @Override
+    public List<Inscripcion> buscarPorEstudiante(Long estudianteId) {
+        try (EntityManager em = getEntityManager()) {
+            TypedQuery<Inscripcion> query = em.createNamedQuery(
+                    "Inscripcion.buscarPorEstudiante"
+                    , Inscripcion.class);
+            query.setParameter("estudianteId", estudianteId);
+            return query.getResultList();
         }
     }
 }

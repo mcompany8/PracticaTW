@@ -2,23 +2,10 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
 
-<!DOCTYPE html>t a
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Catálogo de cursos · InfoFormación</title>
-    <base href="${pageContext.request.contextPath}/">
-    <link rel="icon" href="imagenes/logo.png" type="favicon/x-icon">
-    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/componentes/botones.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/componentes/formularios.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/componentes/menu.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/componentes/cursosGrid.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/componentes/modalConfirmacion.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/paginas/catalogo.css">
-</head>
+<c:set var="title" value="Catálogo"/>
+<c:set var="extraCss" value="${['componentes/botones.css', 'componentes/cursosGrid.css', 'paginas/catalogo.css']}"/>
 
+<%@ include file="layout/head.jspf" %>
 <%@ include file="layout/header.jsp" %>
 <c:if test="${!empty sessionScope.usuario}">
     <jsp:include page="/WEB-INF/views/layout/menu.jsp"/>

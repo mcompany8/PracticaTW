@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <base href="${pageContext.request.contextPath}/">
+    <title>${titulo}</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/componentes/menu.css">
+    <link rel="stylesheet" href="assets/css/componentes/modalConfirmacion.css">
+
+    <%-- Hueco para CSS específico de cada página --%>
+    <c:if test="${not empty extraCss}">
+        <c:forEach var="css" items="${extraCss}">
+            <link rel="stylesheet" href="assets/css/${css}">
+        </c:forEach>
+    </c:if>
+</head>

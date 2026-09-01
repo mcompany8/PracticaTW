@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,13 @@ import java.util.List;
         name = "Inscripcion.buscarPorCursoAndEstudiante",
         query = "SELECT i FROM Inscripcion i WHERE i.curso.id = :cursoId AND i.estudiante.id = :estudianteId"
 )
+@NamedQuery(
+        name = "Inscripcion.buscarPorEstudiante",
+        query = "SELECT i FROM Inscripcion i " +
+                "JOIN FETCH i.curso c " +
+                "WHERE i.estudiante.id = :estudianteId " +
+                "ORDER BY i.fechaInscripcion DESC"
+)
 public class Inscripcion implements Serializable {
 
     @Id
@@ -59,4 +67,10 @@ public class Inscripcion implements Serializable {
 
     @OneToMany(mappedBy = "inscripciones", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EntregaTarea> entregaTareas = new ArrayList<>();
+
+    public String getFechaInscripcionFormateada() {
+        return fechaInscripcion != null
+                ? fechaInscripcion.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                : "";
+    }
 }

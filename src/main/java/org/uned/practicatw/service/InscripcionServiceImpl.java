@@ -13,10 +13,12 @@ public class InscripcionServiceImpl extends GenericServiceImpl<Inscripcion, Insc
         super(dao);
     }
 
+    @Override
     public List<Estudiante> obtenerEstudiantesPorCurso(Long cursoId) {
         return dao.buscarEstudiantesPorCurso(cursoId);
     }
 
+    @Override
     public List<Curso> obtenerCursosPorEstudiante(Long estudianteId) {
         return dao.buscarCursosPorEstudiante(estudianteId);
     }
@@ -24,5 +26,10 @@ public class InscripcionServiceImpl extends GenericServiceImpl<Inscripcion, Insc
     @Override
     public Inscripcion obtenerPorCursoAndEstudiante(Long cursoId, Long EstudianteId) {
         return dao.buscarPorCursoAndEstudiante(cursoId, EstudianteId);
+    }
+
+    @Override
+    public List<Inscripcion> obtenerPorEstudiante(Long estudianteId) {
+        return dao.buscarPorEstudiante(estudianteId);
     }
 }

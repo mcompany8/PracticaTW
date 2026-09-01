@@ -1,5 +1,6 @@
 package org.uned.practicatw.controller;
 
+import org.uned.practicatw.command.MisCursosCommand;
 import org.uned.practicatw.controller.command.*;
 import org.uned.practicatw.service.*;
 
@@ -20,11 +21,12 @@ public class CommandFactory {
         TematicaService tematicaService = ServiceFactory.getTematicaService();
 
 
+
+        commands.put("misCursos", new MisCursosCommand(cursoService, inscripcionService));
         commands.put("curso", new VerCursoCommand(cursoService, inscripcionService));
         commands.put("inscripcion", new InscripcionCommand(inscripcionService, cursoService));
         commands.put("catalogo", new CatalogoCommand(cursoService, tematicaService));
         commands.put("crearCurso", new CrearCursoCommand(cursoService, profesorService));
-        commands.put("nuevoCurso", new PrepararFormCursoCommand(profesorService));
         commands.put("listarUsuarios", new ListarUsuariosCommand(usuarioService));
         commands.put("cursosProf", new ListarCursosProfesorCommand(cursoService));
         commands.put("estudiantesCurso", new ListarEstudiantesPorCursoCommand(inscripcionService));

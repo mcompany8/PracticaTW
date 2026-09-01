@@ -1,0 +1,44 @@
+/* misCursos.css — vista "Mis cursos" del estudiante */
+
+.mis-cursos {
+    padding-block: 2rem;
+}
+
+.mis-cursos__cabecera {
+    margin-bottom: 1.5rem;
+}
+
+.mis-cursos__titulo {
+    margin: 0;
+    color: var(--color-texto);
+}
+
+.mis-cursos__vacio {
+    color: var(--color-texto-suave);
+    font-size: 1rem;
+}
+
+/* La tarjeta entera es el enlace (sin botón de acción): reutiliza .curso-tarjeta
+   de cursosGrid.css pero como <a>, sin nivel/temáticas/botón */
+.curso-tarjeta--enlace {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.curso-tarjeta--enlace:focus-visible {
+    outline: 2px solid var(--color-primario, #2f6fed);
+    outline-offset: 2px;
+}
+
+.curso-tarjeta__profesor {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+}
+
+.curso-tarjeta__fecha-inscripcion {
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
